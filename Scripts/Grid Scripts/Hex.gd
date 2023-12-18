@@ -17,6 +17,7 @@ func _init(_q,_r,_s):
 	r = _r;
 	s = _s;
 	assert((q+r+s) == 0,'Coordinates do not add to 0'); 
+	
 
 func equal_to(b:Hex):
 	return q == b.q && r == b.r && s == b.s;
@@ -44,6 +45,7 @@ func hex_direction(direction:int):
 	direction = (6 + (direction % 6)) % 6;
 	var dir = HexDirections.new().directions;
 	return dir[direction];
+
 func get_hex_neighbours() -> Array[Hex]:
 	var neighbours : Array[Hex] = []
 	var directions = HexDirections.new().directions;

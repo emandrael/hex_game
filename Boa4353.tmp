@@ -12,10 +12,6 @@ script = ExtResource("1_6i5pt")
 z_index = -1
 script = ExtResource("2_xhg74")
 
-[node name="Selection Zones" type="Node2D" parent="Board"]
-
-[node name="Travel Zones" type="Node2D" parent="Board"]
-
 [node name="Units" type="Node2D" parent="Board"]
 
 [node name="Layout" type="Node2D" parent="."]

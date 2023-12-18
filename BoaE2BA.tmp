@@ -8,15 +8,11 @@
 position = Vector2(400, 369)
 script = ExtResource("1_6i5pt")
 
-[node name="Board" type="Node2D" parent="."]
+[node name="Test" type="Node2D" parent="."]
 z_index = -1
 script = ExtResource("2_xhg74")
 
-[node name="Selection Zones" type="Node2D" parent="Board"]
-
-[node name="Travel Zones" type="Node2D" parent="Board"]
-
-[node name="Units" type="Node2D" parent="Board"]
+[node name="Units" type="Node2D" parent="Test"]
 
 [node name="Layout" type="Node2D" parent="."]
 script = ExtResource("3_wsa8p")

@@ -58,3 +58,9 @@ static func polygon_corners(layout, h) -> Array[Vector2]:
 		var offset = hex_corner_offset(layout, i)
 		corners.append(Vector2(center.x + offset.x, center.y + offset.y))
 	return corners
+
+static func draw_hex(_self:Node2D,layout:Layout,hex_coordinates:Hex,shape_colour : Color,line_colour:Color, size:int = 5):
+		var points = polygon_corners(layout,hex_coordinates)
+		_self.draw_polygon(points,[shape_colour])
+		points.append(points[0])
+		_self.draw_polyline(points,line_colour,size)
