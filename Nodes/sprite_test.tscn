@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0ljqne72e6br"]
+
+[ext_resource type="Texture2D" uid="uid://bsfh5880eqopn" path="res://Sprite-0001.png" id="1_wkhwx"]
+[ext_resource type="Script" path="res://Nodes/sprite_test.gd" id="2_mxxmu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hcx5"]
+radius = 14.6666
+height = 29.3333
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(-50, -10)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_wkhwx")
+script = ExtResource("2_mxxmu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_1hcx5")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

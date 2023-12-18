@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6hh32pgda6pr"]
+
+[ext_resource type="Script" path="res://BoardManager.gd" id="1_6i5pt"]
+[ext_resource type="Script" path="res://Test.gd" id="2_20rqx"]
+[ext_resource type="PackedScene" uid="uid://c0ljqne72e6br" path="res://Nodes/sprite_test.tscn" id="3_id2j0"]
+[ext_resource type="Script" path="res://Scripts/Layout.gd" id="3_ry0ym"]
+
+[node name="BoardManager" type="Node2D"]
+script = ExtResource("1_6i5pt")
+
+[node name="Test" type="Node2D" parent="."]
+position = Vector2(398, 429)
+script = ExtResource("2_20rqx")
+
+[node name="Units" type="Node2D" parent="Test"]
+
+[node name="Sprite2D" parent="Test/Units" instance=ExtResource("3_id2j0")]
+position = Vector2(-596, -39)
+
+[node name="Layout" type="Node2D" parent="."]
+position = Vector2(7, 126)
+script = ExtResource("3_ry0ym")
+type = 1
+size = Vector2(40, 40)
