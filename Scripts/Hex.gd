@@ -44,6 +44,12 @@ func hex_direction(direction:int):
 	direction = (6 + (direction % 6)) % 6;
 	var dir = HexDirections.new().directions;
 	return dir[direction];
+func get_hex_neighbours() -> Array[Hex]:
+	var neighbours : Array[Hex] = []
+	var directions = HexDirections.new().directions;
+	for dir in directions:
+		neighbours.append(self.hex_add(dir))
+	return neighbours;
 
 func hex_neighbor_at(direction:int):
 	return hex_add(hex_direction(direction));

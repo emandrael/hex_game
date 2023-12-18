@@ -9,11 +9,9 @@ var orientation : Orientation;
 @export var size:Vector2;
 @export var origin:Vector2;
 
-func _init():
+func _ready():
 	orientation = set_orientation(type);
 
-func _ready():
-	print(self)
 
 func _to_string():
 	var str = "Size: {sz}, Origin: {o}, Orientation: {or}".format({"o":origin,"sz":size,"or":Orientation.Types.find_key(type)})
