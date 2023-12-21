@@ -1,13 +1,14 @@
-extends Node
+extends Resource
 
 class_name Hex
-var q:int:
+
+@export var q:int:
 	get:
 		return q;
-var r:int:
+@export var r:int:
 	get:
 		return r;
-var s:int:
+@export var s:int:
 	get:
 		return s;
 		
@@ -39,6 +40,15 @@ func hex_length() -> int:
 	
 func hex_distance_from(b) -> int:
 	return self.hex_subtract(b).hex_length()
+	
+func is_in(array_of_hexes : Array[Hex]):
+	for _hex in array_of_hexes:
+		if self.to_string() == _hex.to_string():
+			return true
+	return false;
+	
+func is_not_in(array_of_hexes : Array[Hex]):
+	return !is_in(array_of_hexes);
 
 func hex_direction(direction:int):
 	assert (0 <= direction && direction < 6, "Value not below 6")

@@ -19,5 +19,3 @@ script = ExtResource("2_ng13c")
 shape = SubResource("CapsuleShape2D_1hcx5")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

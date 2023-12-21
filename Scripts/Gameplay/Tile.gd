@@ -11,5 +11,8 @@ func _init(_hex,_unit,_properties):
 	_unit = unit;
 	properties = _properties;
 
+func _to_string():
+	return str(hex_coordinate) + " Node: " + str(unit) + " Properties " +  str(properties)
+
 func get_key() -> String:
 	return hex_coordinate.to_string()
