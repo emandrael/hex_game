@@ -6,12 +6,12 @@ class_name TravelZone
 @export var hex:Hex = Hex.new(1,-1,0);
 @export var route_to_node : Array[Hex] = []
 
-signal travel_to(hex, travel_cost,route)
+signal travel_to(hex:Hex, travel_cost:int, route:Array[Hex])
 
-@onready var boardmanager:BoardManager = get_tree().root.get_child(0);
+@onready var travel_zone_manager:TravelZonesManager = get_parent();
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	travel_to.connect(boardmanager._on_travel_to)
+	travel_to.connect(travel_zone_manager._on_travel_to)
 
 func init(_pos : Vector2,_travel_cost:int,_hex_coords:Hex,_route_to_node:Array[Hex]):
 	position = _pos;

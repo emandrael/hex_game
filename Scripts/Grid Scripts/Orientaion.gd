@@ -28,3 +28,19 @@ func _init(f0_:float, f1_:float, f2_:float, f3_:float, b0_:float, b1_:float, b2_
 	b3 = b3_;
 	start_angle = start_angle_;
 
+static func set_orientation(orientaion:Orientation.Types) -> Orientation:
+	match orientaion:
+		Orientation.Types.FLAT:
+			return Orientation.new(3.0 / 2.0, 0.0, sqrt(3.0) / 2.0, sqrt(3.0),
+				2.0 / 3.0, 0.0, -1.0 / 3.0, sqrt(3.0) / 3.0,
+				0.0);
+		Orientation.Types.POINTY:
+			return Orientation.new(sqrt(3.0), sqrt(3.0) / 2.0, 0.0, 3.0 / 2.0,
+				sqrt(3.0) / 3.0, -1.0 / 3.0, 0.0, 2.0 / 3.0,
+				0.5);
+		_:
+			return Orientation.new(3.0 / 2.0, 0.0, sqrt(3.0) / 2.0, sqrt(3.0),
+				2.0 / 3.0, 0.0, -1.0 / 3.0, sqrt(3.0) / 3.0,
+				0.0);
+		
+

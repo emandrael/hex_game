@@ -1,10 +1,14 @@
-extends Node
+extends Node2D
 
 class_name Tile
 
-var hex_coordinate : Hex;
-var unit : Node;
-var properties : TileProperties;
+@export var hex_coordinate : Hex;
+@export var unit : Node;
+@export var sprite : Sprite2D;
+@export var properties : TileProperties;
+
+func _ready():
+	sprite = get_node('Sprite2D')
 
 func _init(_hex,_unit,_properties):
 	hex_coordinate = _hex;

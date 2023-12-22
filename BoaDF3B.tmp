@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6hh32pgda6pr"]
+
+[ext_resource type="Script" path="res://BoardManager.gd" id="1_6i5pt"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Board.gd" id="2_1ci4r"]
+[ext_resource type="Script" path="res://Scripts/Grid Scripts/Layout.gd" id="3_wsa8p"]
+
+[node name="BoardManager" type="Node2D"]
+position = Vector2(400, 369)
+script = ExtResource("1_6i5pt")
+test_unit_vector_pos = Vector3(0, -3, 3)
+map = null
+player_units = null
+enemy_units = null
+travel_zones = null
+
+[node name="Board" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("2_1ci4r")
+show_debug_hex_coords = true
+
+[node name="Travel Zones" type="Node2D" parent="Board"]
+
+[node name="Selection Zones" type="Node2D" parent="Board"]
+
+[node name="Debug Labels" type="Node2D" parent="Board"]
+
+[node name="Layout" type="Node2D" parent="Board"]
+script = ExtResource("3_wsa8p")
+type = 1
+size = Vector2(40, 40)
+
+[node name="Units" type="Node2D" parent="."]
