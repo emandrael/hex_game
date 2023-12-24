@@ -47,13 +47,7 @@ func _on_sprite_2d_select_unit(game_piece : GamePiece, hex):
 	disable_units_but.emit(game_piece)
 	print("Unit Selected: " + str(game_piece.unit.unit_name))
 	queue_redraw();
-	
 
-func spawn_zones_at_hex_neigbours(node:Node2D,hex:Hex,map : Dictionary):
-	var all_zones : Dictionary = {}
-	var neighbours = hex.get_hex_neighbours()
-	pass
-	
 
 func _on_travel_from(piece:GamePiece,hex : Hex):
 	var travel_zone = preload("res://Nodes/Travel_Zone.tscn")
@@ -69,7 +63,6 @@ func _on_travel_from(piece:GamePiece,hex : Hex):
 		# Checks if the map has a tile with 
 		# the neighbours coords.
 		if map.has(str(neighbour)):
-			var tile : Tile = map[str(neighbour)];
 			if board.is_tile_occupied_at_hex(neighbour):
 				var point = HexHelper.hex_to_pixel(layout,neighbour);
 				var new_travel_zone : TravelZone = (travel_zone.instantiate() as TravelZone)

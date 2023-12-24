@@ -6,6 +6,10 @@ signal turn_change(state : Turn.State)
 @export var current_turn : Turn.State;
 @export var current_phase : Phase.State;
 
+
+func _ready():
+	turn_change.emit(current_turn);
+
 func _on_end_turn_pressed():
 	process_turn(current_turn)
 

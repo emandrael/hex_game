@@ -12,6 +12,8 @@ enum GamePieceState {
 
 signal select_game_piece(unit,hex)
 signal travel_from(unit,hex)
+signal is_moving
+signal is_finished_moving(game_piece:GamePieceState);
 
 var hex:Hex;
 var move_commands : Array[Hex] = [];
@@ -51,6 +53,7 @@ func _on_disable_units_but(unit):
 func move():
 	if piece_state == GamePieceState.IDLE:
 		piece_state = GamePieceState.MOVING;
+		is_moving.emit()
 		var move_steps = move_commands.size()
 		total_steps -= move_steps;
 		for move in range(move_steps):
@@ -65,6 +68,7 @@ func move():
 			piece_state = GamePieceState.TIRED;
 		else:
 			piece_state = GamePieceState.IDLE;
+		is_finished_moving.emit(self)
 
 func set_route(move_steps : Array[Hex]):
 	move_commands = move_steps
