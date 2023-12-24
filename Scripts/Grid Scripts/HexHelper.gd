@@ -2,7 +2,7 @@ extends Node
 
 class_name HexHelper
 
-static func hex_round(h:FractionalHex):
+static func hex_round(h:FractionalHex) -> Hex:
 	var q = int(round(h.q));
 	var r = int(round(h.r));
 	var s = int(round(h.s));
@@ -15,7 +15,7 @@ static func hex_round(h:FractionalHex):
 		r = -q - s;
 	else:
 		s = -q - r;
-	return Hex.new(q, r, s);
+	return Hex.create_and_set_param(q, r, s)
 
 static func hex_lerp(a, b,t:float):
 	return FractionalHex.new(lerp(a.q, b.q, t),

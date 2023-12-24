@@ -16,3 +16,7 @@ func _init(_q,_r,_s):
 	r = _r;
 	s = _s;
 
+func _to_string():
+#	return ('q:'+str(q) + ' ' + 'r:'+str(r) + ' ' + 's:'+str(s) + ' ');
+	return (str(q) + ' ' +str(r) + ' ' + str(s) + ' ');
+

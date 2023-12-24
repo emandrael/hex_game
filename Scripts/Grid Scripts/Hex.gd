@@ -13,12 +13,25 @@ class_name Hex
 		return s;
 		
 
-func _init(_q,_r,_s):
+func set_param(_q,_r,_s):
 	q = _q;
 	r = _r;
 	s = _s;
 	assert((q+r+s) == 0,'Coordinates do not add to 0'); 
 	
+
+func non_static_create_and_set_param(_q,_r,_s) -> Hex:
+	var hex = Hex.new()
+	hex.set_param(_q,_r,_s)
+	return hex;
+
+static func create_and_set_param(_q,_r,_s) -> Hex:
+	var hex = Hex.new()
+	hex.q = _q;
+	hex.r = _r;
+	hex.s = _s;
+	assert((hex.q+hex.r+hex.s) == 0,'Coordinates do not add to 0'); 
+	return hex;
 
 func equal_to(b:Hex):
 	return q == b.q && r == b.r && s == b.s;
@@ -27,13 +40,15 @@ func not_equal_to(b:Hex):
 	return !equal_to(b);
 
 func hex_add(b) -> Hex:
-	return Hex.new(q + b.q, r + b.r, s + b.s)
+	var hex = Hex.new()
+	return create_and_set_param(q + b.q, r + b.r, s + b.s)
 
 func hex_subtract(b) -> Hex:
-	return Hex.new(q - b.q, r - b.r, s - b.s)
+	return create_and_set_param(q - b.q, r - b.r, s - b.s)
 
 func hex_multiply(k) -> Hex:
-	return Hex.new(q * k, r * k, s * k);
+	var hex = Hex.new()
+	return create_and_set_param(q * k, r * k, s * k);
 
 func hex_length() -> int:
 	return (abs(q) + abs(r) + abs(s)) / 2
@@ -70,3 +85,5 @@ func _to_string():
 #	return ('q:'+str(q) + ' ' + 'r:'+str(r) + ' ' + 's:'+str(s) + ' ');
 	return (str(q) + ' ' +str(r) + ' ' + str(s) + ' ');
 
+func get_key() -> String:
+	return _to_string();

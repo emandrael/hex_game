@@ -3,9 +3,12 @@ extends Node2D
 class_name SelectionZoneManager
 
 @export var highlighted_hex : Hex;
+@export var debug : bool = true;
+
 @onready var board : Board = get_parent();
 @onready var layout: Layout = board.layout;
 @onready var map = board.map;
+
 
 func _ready():
 	set_selection_zones()
@@ -28,4 +31,5 @@ func set_selection_zones():
 		var new_selection_zone : SelectionZone = selection_zone.instantiate()
 		new_selection_zone.position = point
 		new_selection_zone.hex = tile.hex_coordinate
+		new_selection_zone.set_debug(debug)
 		add_child(new_selection_zone)

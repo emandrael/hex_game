@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2uueimmd836v"]
+
+[ext_resource type="Script" path="res://ddd.gd" id="1_x6cwt"]
+[ext_resource type="Script" path="res://Scripts/Grid Scripts/Hex.gd" id="2_oq2n4"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Tile/Tile.gd" id="3_ngjng"]
+
+[sub_resource type="Resource" id="Resource_cynw0"]
+script = ExtResource("2_oq2n4")
+q = 0
+r = 0
+s = 0
+
+[sub_resource type="Resource" id="Resource_a4w8e"]
+script = ExtResource("3_ngjng")
+hex_coordinate = SubResource("Resource_cynw0")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_x6cwt")
+ere = SubResource("Resource_a4w8e")

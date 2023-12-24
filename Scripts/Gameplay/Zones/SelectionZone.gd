@@ -5,7 +5,7 @@ class_name SelectionZone
 signal highlight_hex(hex)
 signal unhighlight_hex(hex)
 
-@export var hex:Hex = Hex.new(1,-1,0);
+@export var hex:Hex = Hex.create_and_set_param(1,-1,0);
 
 @onready var selection_zone_manager:SelectionZoneManager = get_parent()
 # Called when the node enters the scene tree for the first time.
@@ -19,3 +19,12 @@ func _on_area_2d_mouse_entered():
 
 func _on_area_2d_mouse_exited():
 	unhighlight_hex.emit(hex)
+
+func set_debug(_debug : bool):
+	var collision_shape : CollisionShape2D = get_node('Area2D/CollisionShape2D')
+
+	match _debug:
+		true:
+			collision_shape.debug_color.a = 0.3;
+		false:
+			collision_shape.debug_color.a = 0;

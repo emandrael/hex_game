@@ -9,9 +9,11 @@ static func create_hex_map(size:int) -> Dictionary:
 		var r1 = max(-N, -q - N);
 		var r2 = min( N, -q + N);
 		for r in range(r1,r2+1):
-			var hex = Hex.new(q,r,-q-r)
-			map[str(hex)] = Tile.new(hex,null,null) 	# Stores into a dictionary called
-														# map
+			var hex = Hex.create_and_set_param(q,r,-q-r);
+			var tile = Tile.create_and_set_param(hex,null,null,null);
+			tile.resource_name = str(hex);
+			map[str(hex)] = tile 	# Stores into a dictionary called
+			print(map[str(hex)])
 	return map;
 
 static func create_hex_array(size:int) -> Array[Array]:
@@ -25,7 +27,7 @@ static func create_hex_array(size:int) -> Array[Array]:
 		var r1 = max(-N, -q - N);
 		var r2 = min( N, -q + N);
 		for r in range(r1,r2+1):
-			var hex = Hex.new(q,r,-q-r)
-			map[q][r] = Tile.new(hex,null,null) # Stores into a dictionary called
+			var hex = Hex.create_and_set_param(q,r,-q-r)
+			map[q][r] = Tile.create_and_set_param(hex,null,null,null) # Stores into a dictionary called
 													# map
 	return map;

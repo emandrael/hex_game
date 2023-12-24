@@ -1,19 +1,23 @@
-extends Node2D
+extends Resource
 
 class_name Tile
 
 @export var hex_coordinate : Hex;
-@export var unit : Node;
-@export var sprite : Sprite2D;
+@export var unit : GamePiece;
+@export var board_tile : Node2D;
 @export var properties : TileProperties;
 
-func _ready():
-	sprite = get_node('Sprite2D')
+static func create_and_set_param(_hex,_unit,_board_tile,_properties) -> Tile:
+	var tile = Tile.new()
+	tile.hex_coordinate = _hex;
+	tile.unit = _unit;
+	tile.properties = _properties;
+	tile.board_tile = _board_tile;
+	return tile;
 
-func _init(_hex,_unit,_properties):
+func set_unit_with_hex(_unit: GamePiece, _hex : Hex = _unit.hex):
+	unit = _unit;
 	hex_coordinate = _hex;
-	_unit = unit;
-	properties = _properties;
 
 func _to_string():
 	return str(hex_coordinate) + " Node: " + str(unit) + " Properties " +  str(properties)

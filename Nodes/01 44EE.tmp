@@ -1,0 +1,1355 @@
+[gd_scene load_steps=136 format=3 uid="uid://tnvxx2x8ktsa"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/GameManager/SimpleManager/SimpleGameManager.gd" id="1_id0ua"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Board/Board.gd" id="2_620e6"]
+[ext_resource type="Script" path="res://Scripts/UI/TurnLabel.gd" id="2_idqqp"]
+[ext_resource type="Script" path="res://Scripts/Grid Scripts/Layout.gd" id="3_bulrf"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GanePieceManager.gd" id="4_ihhmn"]
+[ext_resource type="Script" path="res://Scripts/Grid Scripts/Hex.gd" id="4_uwt01"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/TravelManager.gd" id="5_15wj0"]
+[ext_resource type="PackedScene" uid="uid://dgrsufvk0r3kf" path="res://Nodes/Board_Tile.tscn" id="5_f6n6d"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Tile/Tile.gd" id="5_j0c67"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/SelectionManager.gd" id="6_5gv8b"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/DebugManager.gd" id="7_gek6n"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Board/Board_Tile.gd" id="8_2wyur"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjjv6"]
+font_size = 35
+
+[sub_resource type="Resource" id="Resource_wuna7"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 0
+s = 4
+
+[sub_resource type="Resource" id="Resource_3ocyi"]
+resource_name = "-4 0 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_wuna7")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-332.554, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_no6fw"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 1
+s = 3
+
+[sub_resource type="Resource" id="Resource_hobuj"]
+resource_name = "-4 1 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_no6fw")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-290.985, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_080gx"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 2
+s = 2
+
+[sub_resource type="Resource" id="Resource_d4w5s"]
+resource_name = "-4 2 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_080gx")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-249.415, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_6h7rs"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 3
+s = 1
+
+[sub_resource type="Resource" id="Resource_m7ymx"]
+resource_name = "-4 3 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_6h7rs")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-207.846, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_xym5j"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 4
+s = 0
+
+[sub_resource type="Resource" id="Resource_xqw7f"]
+resource_name = "-4 4 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_xym5j")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_ub01u"]
+script = ExtResource("4_uwt01")
+q = -3
+r = -1
+s = 4
+
+[sub_resource type="Resource" id="Resource_movo4"]
+resource_name = "-3 -1 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_ub01u")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-290.985, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_6sqf6"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 0
+s = 3
+
+[sub_resource type="Resource" id="Resource_lh3f0"]
+resource_name = "-3 0 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_6sqf6")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-249.415, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_f58lg"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 1
+s = 2
+
+[sub_resource type="Resource" id="Resource_0u6oe"]
+resource_name = "-3 1 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_f58lg")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-207.846, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_sipqn"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 2
+s = 1
+
+[sub_resource type="Resource" id="Resource_k0iyl"]
+resource_name = "-3 2 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_sipqn")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_fk7pf"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 3
+s = 0
+
+[sub_resource type="Resource" id="Resource_l0hjd"]
+resource_name = "-3 3 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_fk7pf")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-124.708, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_vs3w2"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 4
+s = -1
+
+[sub_resource type="Resource" id="Resource_81sws"]
+resource_name = "-3 4 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_vs3w2")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_mj6md"]
+script = ExtResource("4_uwt01")
+q = -2
+r = -2
+s = 4
+
+[sub_resource type="Resource" id="Resource_hutfe"]
+resource_name = "-2 -2 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_mj6md")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-249.415, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_2644s"]
+script = ExtResource("4_uwt01")
+q = -2
+r = -1
+s = 3
+
+[sub_resource type="Resource" id="Resource_o7gst"]
+resource_name = "-2 -1 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_2644s")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-207.846, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_l43u7"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 0
+s = 2
+
+[sub_resource type="Resource" id="Resource_lvys3"]
+resource_name = "-2 0 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_l43u7")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_xmwm8"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 1
+s = 1
+
+[sub_resource type="Resource" id="Resource_4lx3m"]
+resource_name = "-2 1 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_xmwm8")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-124.708, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_s7vwu"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 2
+s = 0
+
+[sub_resource type="Resource" id="Resource_xbl5o"]
+resource_name = "-2 2 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_s7vwu")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_t6vjd"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 3
+s = -1
+
+[sub_resource type="Resource" id="Resource_67bsp"]
+resource_name = "-2 3 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_t6vjd")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-41.5692, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_dj23k"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 4
+s = -2
+
+[sub_resource type="Resource" id="Resource_gomy3"]
+resource_name = "-2 4 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_dj23k")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_70g5g"]
+script = ExtResource("4_uwt01")
+q = -1
+r = -3
+s = 4
+
+[sub_resource type="Resource" id="Resource_p5cco"]
+resource_name = "-1 -3 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_70g5g")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-207.846, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_lw7pf"]
+script = ExtResource("4_uwt01")
+q = -1
+r = -2
+s = 3
+
+[sub_resource type="Resource" id="Resource_f646o"]
+resource_name = "-1 -2 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_lw7pf")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_dvtys"]
+script = ExtResource("4_uwt01")
+q = -1
+r = -1
+s = 2
+
+[sub_resource type="Resource" id="Resource_syiae"]
+resource_name = "-1 -1 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_dvtys")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-124.708, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_3mir8"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 0
+s = 1
+
+[sub_resource type="Resource" id="Resource_66ajg"]
+resource_name = "-1 0 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_3mir8")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_qwln4"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 1
+s = 0
+
+[sub_resource type="Resource" id="Resource_idhvr"]
+resource_name = "-1 1 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_qwln4")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-41.5692, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_xlkq3"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 2
+s = -1
+
+[sub_resource type="Resource" id="Resource_ygk0n"]
+resource_name = "-1 2 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_xlkq3")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_yfvdh"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 3
+s = -2
+
+[sub_resource type="Resource" id="Resource_7fmvc"]
+resource_name = "-1 3 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_yfvdh")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(41.5692, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_1ah60"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 4
+s = -3
+
+[sub_resource type="Resource" id="Resource_gkj7v"]
+resource_name = "-1 4 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_1ah60")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_jdq4e"]
+script = ExtResource("4_uwt01")
+q = 0
+r = -4
+s = 4
+
+[sub_resource type="Resource" id="Resource_fntja"]
+resource_name = "0 -4 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_jdq4e")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_j67xv"]
+script = ExtResource("4_uwt01")
+q = 0
+r = -3
+s = 3
+
+[sub_resource type="Resource" id="Resource_841k8"]
+resource_name = "0 -3 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_j67xv")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-124.708, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_7xkli"]
+script = ExtResource("4_uwt01")
+q = 0
+r = -2
+s = 2
+
+[sub_resource type="Resource" id="Resource_okwk3"]
+resource_name = "0 -2 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_7xkli")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_ydmwr"]
+script = ExtResource("4_uwt01")
+q = 0
+r = -1
+s = 1
+
+[sub_resource type="Resource" id="Resource_ofpeb"]
+resource_name = "0 -1 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_ydmwr")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-41.5692, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_qx16h"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 0
+s = 0
+
+[sub_resource type="Resource" id="Resource_0h6cw"]
+resource_name = "0 0 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_qx16h")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_e2t84"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 1
+s = -1
+
+[sub_resource type="Resource" id="Resource_cg8y2"]
+resource_name = "0 1 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_e2t84")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(41.5692, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_wts1f"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 2
+s = -2
+
+[sub_resource type="Resource" id="Resource_hnlxs"]
+resource_name = "0 2 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_wts1f")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_6ou1b"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 3
+s = -3
+
+[sub_resource type="Resource" id="Resource_eady7"]
+resource_name = "0 3 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_6ou1b")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(124.708, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_el26u"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 4
+s = -4
+
+[sub_resource type="Resource" id="Resource_o4g8u"]
+resource_name = "0 4 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_el26u")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_f2tgo"]
+script = ExtResource("4_uwt01")
+q = 1
+r = -4
+s = 3
+
+[sub_resource type="Resource" id="Resource_d0y2x"]
+resource_name = "1 -4 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_f2tgo")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_th6rq"]
+script = ExtResource("4_uwt01")
+q = 1
+r = -3
+s = 2
+
+[sub_resource type="Resource" id="Resource_n7avf"]
+resource_name = "1 -3 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_th6rq")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-41.5692, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_2glya"]
+script = ExtResource("4_uwt01")
+q = 1
+r = -2
+s = 1
+
+[sub_resource type="Resource" id="Resource_kgov1"]
+resource_name = "1 -2 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_2glya")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_0sse1"]
+script = ExtResource("4_uwt01")
+q = 1
+r = -1
+s = 0
+
+[sub_resource type="Resource" id="Resource_vm0o6"]
+resource_name = "1 -1 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_0sse1")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(41.5692, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_sipkd"]
+script = ExtResource("4_uwt01")
+q = 1
+r = 0
+s = -1
+
+[sub_resource type="Resource" id="Resource_jhme0"]
+resource_name = "1 0 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_sipkd")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_1s8ti"]
+script = ExtResource("4_uwt01")
+q = 1
+r = 1
+s = -2
+
+[sub_resource type="Resource" id="Resource_uc5rd"]
+resource_name = "1 1 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_1s8ti")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(124.708, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_fcc77"]
+script = ExtResource("4_uwt01")
+q = 1
+r = 2
+s = -3
+
+[sub_resource type="Resource" id="Resource_5ttac"]
+resource_name = "1 2 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_fcc77")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_obojl"]
+script = ExtResource("4_uwt01")
+q = 1
+r = 3
+s = -4
+
+[sub_resource type="Resource" id="Resource_pshbh"]
+resource_name = "1 3 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_obojl")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(207.846, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_pwm8v"]
+script = ExtResource("4_uwt01")
+q = 2
+r = -4
+s = 2
+
+[sub_resource type="Resource" id="Resource_gdtgg"]
+resource_name = "2 -4 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_pwm8v")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_yq4xu"]
+script = ExtResource("4_uwt01")
+q = 2
+r = -3
+s = 1
+
+[sub_resource type="Resource" id="Resource_5t5la"]
+resource_name = "2 -3 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_yq4xu")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(41.5692, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_if5kd"]
+script = ExtResource("4_uwt01")
+q = 2
+r = -2
+s = 0
+
+[sub_resource type="Resource" id="Resource_623wd"]
+resource_name = "2 -2 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_if5kd")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_h5d1k"]
+script = ExtResource("4_uwt01")
+q = 2
+r = -1
+s = -1
+
+[sub_resource type="Resource" id="Resource_8i4cv"]
+resource_name = "2 -1 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_h5d1k")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(124.708, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_kne56"]
+script = ExtResource("4_uwt01")
+q = 2
+r = 0
+s = -2
+
+[sub_resource type="Resource" id="Resource_2qbxx"]
+resource_name = "2 0 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_kne56")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_oqwqo"]
+script = ExtResource("4_uwt01")
+q = 2
+r = 1
+s = -3
+
+[sub_resource type="Resource" id="Resource_qhvct"]
+resource_name = "2 1 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_oqwqo")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(207.846, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_6vk2y"]
+script = ExtResource("4_uwt01")
+q = 2
+r = 2
+s = -4
+
+[sub_resource type="Resource" id="Resource_d05r0"]
+resource_name = "2 2 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_6vk2y")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(249.415, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_csy07"]
+script = ExtResource("4_uwt01")
+q = 3
+r = -4
+s = 1
+
+[sub_resource type="Resource" id="Resource_wiiam"]
+resource_name = "3 -4 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_csy07")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_yx50m"]
+script = ExtResource("4_uwt01")
+q = 3
+r = -3
+s = 0
+
+[sub_resource type="Resource" id="Resource_qafjw"]
+resource_name = "3 -3 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_yx50m")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(124.708, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_td6fl"]
+script = ExtResource("4_uwt01")
+q = 3
+r = -2
+s = -1
+
+[sub_resource type="Resource" id="Resource_3hymt"]
+resource_name = "3 -2 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_td6fl")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_4h1sn"]
+script = ExtResource("4_uwt01")
+q = 3
+r = -1
+s = -2
+
+[sub_resource type="Resource" id="Resource_o1k3d"]
+resource_name = "3 -1 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_4h1sn")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(207.846, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_bxymr"]
+script = ExtResource("4_uwt01")
+q = 3
+r = 0
+s = -3
+
+[sub_resource type="Resource" id="Resource_nx0ce"]
+resource_name = "3 0 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_bxymr")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(249.415, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_b65b5"]
+script = ExtResource("4_uwt01")
+q = 3
+r = 1
+s = -4
+
+[sub_resource type="Resource" id="Resource_jib18"]
+resource_name = "3 1 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_b65b5")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(290.985, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_ywlb7"]
+script = ExtResource("4_uwt01")
+q = 4
+r = -4
+s = 0
+
+[sub_resource type="Resource" id="Resource_rm431"]
+resource_name = "4 -4 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_ywlb7")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_fhtvg"]
+script = ExtResource("4_uwt01")
+q = 4
+r = -3
+s = -1
+
+[sub_resource type="Resource" id="Resource_k7ghh"]
+resource_name = "4 -3 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_fhtvg")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(207.846, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_3lneq"]
+script = ExtResource("4_uwt01")
+q = 4
+r = -2
+s = -2
+
+[sub_resource type="Resource" id="Resource_acm74"]
+resource_name = "4 -2 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_3lneq")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(249.415, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_efa28"]
+script = ExtResource("4_uwt01")
+q = 4
+r = -1
+s = -3
+
+[sub_resource type="Resource" id="Resource_10kex"]
+resource_name = "4 -1 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_efa28")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(290.985, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[sub_resource type="Resource" id="Resource_l88k3"]
+script = ExtResource("4_uwt01")
+q = 4
+r = 0
+s = -4
+
+[sub_resource type="Resource" id="Resource_ujhqg"]
+resource_name = "4 0 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_l88k3")
+board_tile = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(332.554, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"script":ExtResource("8_2wyur"))
+
+
+[node name="SimpleGameManager" type="Node2D"]
+position = Vector2(400, 369)
+script = ExtResource("1_id0ua")
+current_phase = 1
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="END TURN" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 314.0
+offset_right = 369.0
+offset_bottom = 388.0
+text = "END TURN"
+
+[node name="Turn Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -382.0
+offset_top = -352.0
+offset_right = -268.0
+offset_bottom = -300.0
+text = "Player Turn
+"
+label_settings = SubResource("LabelSettings_qjjv6")
+script = ExtResource("2_idqqp")
+
+[node name="Board" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("2_620e6")
+map = {
+"-1 -1 2 ": SubResource("Resource_syiae"),
+"-1 -2 3 ": SubResource("Resource_f646o"),
+"-1 -3 4 ": SubResource("Resource_p5cco"),
+"-1 0 1 ": SubResource("Resource_66ajg"),
+"-1 1 0 ": SubResource("Resource_idhvr"),
+"-1 2 -1 ": SubResource("Resource_ygk0n"),
+"-1 3 -2 ": SubResource("Resource_7fmvc"),
+"-1 4 -3 ": SubResource("Resource_gkj7v"),
+"-2 -1 3 ": SubResource("Resource_o7gst"),
+"-2 -2 4 ": SubResource("Resource_hutfe"),
+"-2 0 2 ": SubResource("Resource_lvys3"),
+"-2 1 1 ": SubResource("Resource_4lx3m"),
+"-2 2 0 ": SubResource("Resource_xbl5o"),
+"-2 3 -1 ": SubResource("Resource_67bsp"),
+"-2 4 -2 ": SubResource("Resource_gomy3"),
+"-3 -1 4 ": SubResource("Resource_movo4"),
+"-3 0 3 ": SubResource("Resource_lh3f0"),
+"-3 1 2 ": SubResource("Resource_0u6oe"),
+"-3 2 1 ": SubResource("Resource_k0iyl"),
+"-3 3 0 ": SubResource("Resource_l0hjd"),
+"-3 4 -1 ": SubResource("Resource_81sws"),
+"-4 0 4 ": SubResource("Resource_3ocyi"),
+"-4 1 3 ": SubResource("Resource_hobuj"),
+"-4 2 2 ": SubResource("Resource_d4w5s"),
+"-4 3 1 ": SubResource("Resource_m7ymx"),
+"-4 4 0 ": SubResource("Resource_xqw7f"),
+"0 -1 1 ": SubResource("Resource_ofpeb"),
+"0 -2 2 ": SubResource("Resource_okwk3"),
+"0 -3 3 ": SubResource("Resource_841k8"),
+"0 -4 4 ": SubResource("Resource_fntja"),
+"0 0 0 ": SubResource("Resource_0h6cw"),
+"0 1 -1 ": SubResource("Resource_cg8y2"),
+"0 2 -2 ": SubResource("Resource_hnlxs"),
+"0 3 -3 ": SubResource("Resource_eady7"),
+"0 4 -4 ": SubResource("Resource_o4g8u"),
+"1 -1 0 ": SubResource("Resource_vm0o6"),
+"1 -2 1 ": SubResource("Resource_kgov1"),
+"1 -3 2 ": SubResource("Resource_n7avf"),
+"1 -4 3 ": SubResource("Resource_d0y2x"),
+"1 0 -1 ": SubResource("Resource_jhme0"),
+"1 1 -2 ": SubResource("Resource_uc5rd"),
+"1 2 -3 ": SubResource("Resource_5ttac"),
+"1 3 -4 ": SubResource("Resource_pshbh"),
+"2 -1 -1 ": SubResource("Resource_8i4cv"),
+"2 -2 0 ": SubResource("Resource_623wd"),
+"2 -3 1 ": SubResource("Resource_5t5la"),
+"2 -4 2 ": SubResource("Resource_gdtgg"),
+"2 0 -2 ": SubResource("Resource_2qbxx"),
+"2 1 -3 ": SubResource("Resource_qhvct"),
+"2 2 -4 ": SubResource("Resource_d05r0"),
+"3 -1 -2 ": SubResource("Resource_o1k3d"),
+"3 -2 -1 ": SubResource("Resource_3hymt"),
+"3 -3 0 ": SubResource("Resource_qafjw"),
+"3 -4 1 ": SubResource("Resource_wiiam"),
+"3 0 -3 ": SubResource("Resource_nx0ce"),
+"3 1 -4 ": SubResource("Resource_jib18"),
+"4 -1 -3 ": SubResource("Resource_10kex"),
+"4 -2 -2 ": SubResource("Resource_acm74"),
+"4 -3 -1 ": SubResource("Resource_k7ghh"),
+"4 -4 0 ": SubResource("Resource_rm431"),
+"4 0 -4 ": SubResource("Resource_ujhqg")
+}
+
+[node name="Layout" type="Node2D" parent="Board" node_paths=PackedStringArray("orientation")]
+script = ExtResource("3_bulrf")
+orientation = NodePath("")
+size = Vector2(48, 48)
+
+[node name="Tiles" type="Node2D" parent="Board"]
+
+[node name="Tile -4 0 4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+y_sort_enabled = true
+position = Vector2(-332.554, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -4 1 3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+y_sort_enabled = true
+position = Vector2(-290.985, 72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -4 2 2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+y_sort_enabled = true
+position = Vector2(-249.415, 144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -4 3 1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+y_sort_enabled = true
+position = Vector2(-207.846, 216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -4 4 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+y_sort_enabled = true
+position = Vector2(-166.277, 288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -3 -1 4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+y_sort_enabled = true
+position = Vector2(-290.985, -72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -3 0 3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+y_sort_enabled = true
+position = Vector2(-249.415, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -3 1 2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+y_sort_enabled = true
+position = Vector2(-207.846, 72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -3 2 1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+y_sort_enabled = true
+position = Vector2(-166.277, 144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -3 3 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+y_sort_enabled = true
+position = Vector2(-124.708, 216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -3 4 -1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+y_sort_enabled = true
+position = Vector2(-83.1384, 288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -2 -2 4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+y_sort_enabled = true
+position = Vector2(-249.415, -144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -2 -1 3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+y_sort_enabled = true
+position = Vector2(-207.846, -72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -2 0 2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+y_sort_enabled = true
+position = Vector2(-166.277, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -2 1 1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+y_sort_enabled = true
+position = Vector2(-124.708, 72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -2 2 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+y_sort_enabled = true
+position = Vector2(-83.1384, 144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -2 3 -1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+y_sort_enabled = true
+position = Vector2(-41.5692, 216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -2 4 -2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+y_sort_enabled = true
+position = Vector2(0, 288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -1 -3 4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+y_sort_enabled = true
+position = Vector2(-207.846, -216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -1 -2 3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+y_sort_enabled = true
+position = Vector2(-166.277, -144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -1 -1 2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+y_sort_enabled = true
+position = Vector2(-124.708, -72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -1 0 1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+y_sort_enabled = true
+position = Vector2(-83.1384, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -1 1 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+y_sort_enabled = true
+position = Vector2(-41.5692, 72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -1 2 -1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+y_sort_enabled = true
+position = Vector2(0, 144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -1 3 -2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+y_sort_enabled = true
+position = Vector2(41.5692, 216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile -1 4 -3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+y_sort_enabled = true
+position = Vector2(83.1384, 288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 -4 4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(-166.277, -288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 -3 3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(-124.708, -216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 -2 2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(-83.1384, -144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 -1 1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(-41.5692, -72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 0 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 1 -1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(41.5692, 72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 2 -2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(83.1384, 144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 3 -3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(124.708, 216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 0 4 -4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(166.277, 288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 1 -4 3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+y_sort_enabled = true
+position = Vector2(-83.1384, -288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 1 -3 2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+y_sort_enabled = true
+position = Vector2(-41.5692, -216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 1 -2 1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+y_sort_enabled = true
+position = Vector2(0, -144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 1 -1 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+y_sort_enabled = true
+position = Vector2(41.5692, -72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 1 0 -1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+y_sort_enabled = true
+position = Vector2(83.1384, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 1 1 -2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+y_sort_enabled = true
+position = Vector2(124.708, 72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 1 2 -3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+y_sort_enabled = true
+position = Vector2(166.277, 144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 1 3 -4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+y_sort_enabled = true
+position = Vector2(207.846, 216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 2 -4 2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+y_sort_enabled = true
+position = Vector2(0, -288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 2 -3 1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+y_sort_enabled = true
+position = Vector2(41.5692, -216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 2 -2 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+y_sort_enabled = true
+position = Vector2(83.1384, -144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 2 -1 -1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+y_sort_enabled = true
+position = Vector2(124.708, -72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 2 0 -2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+y_sort_enabled = true
+position = Vector2(166.277, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 2 1 -3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+y_sort_enabled = true
+position = Vector2(207.846, 72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 2 2 -4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+y_sort_enabled = true
+position = Vector2(249.415, 144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 3 -4 1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+y_sort_enabled = true
+position = Vector2(83.1384, -288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 3 -3 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+y_sort_enabled = true
+position = Vector2(124.708, -216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 3 -2 -1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+y_sort_enabled = true
+position = Vector2(166.277, -144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 3 -1 -2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+y_sort_enabled = true
+position = Vector2(207.846, -72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 3 0 -3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+y_sort_enabled = true
+position = Vector2(249.415, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 3 1 -4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+y_sort_enabled = true
+position = Vector2(290.985, 72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 4 -4 0 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+y_sort_enabled = true
+position = Vector2(166.277, -288)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 4 -3 -1 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+y_sort_enabled = true
+position = Vector2(207.846, -216)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 4 -2 -2 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+y_sort_enabled = true
+position = Vector2(249.415, -144)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 4 -1 -3 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+y_sort_enabled = true
+position = Vector2(290.985, -72)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Tile 4 0 -4 " type="Node2D" parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+y_sort_enabled = true
+position = Vector2(332.554, 0)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("8_2wyur")
+
+[node name="Game Piece Manager" type="Node2D" parent="Board"]
+script = ExtResource("4_ihhmn")
+
+[node name="Travel Manager" type="Node2D" parent="Board"]
+script = ExtResource("5_15wj0")
+
+[node name="Selection Manager" type="Node2D" parent="Board"]
+script = ExtResource("6_5gv8b")
+
+[node name="Debug Manager" type="Node2D" parent="Board"]
+script = ExtResource("7_gek6n")
+
+[connection signal="turn_change" from="." to="UI/Turn Label" method="_on_game_manager_turn_change"]
+[connection signal="pressed" from="UI/END TURN" to="." method="_on_end_turn_pressed"]
