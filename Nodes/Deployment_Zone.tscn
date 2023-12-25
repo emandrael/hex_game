@@ -1,17 +1,139 @@
-[gd_scene load_steps=3 format=3 uid="uid://56lll02a5yee"]
+[gd_scene load_steps=21 format=3 uid="uid://56lll02a5yee"]
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/Zones/DeploymentZone.gd" id="1_vdb8t"]
+[ext_resource type="Texture2D" uid="uid://ct6lm7vi30pev" path="res://Sprites/deployment_zone.png" id="2_nmgr0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e3lm"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl8o1"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3j5s"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c33v1"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3fqp"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dw7x"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd14t"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4gne"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7jk2"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5qi7"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_row8l"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_878x6"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcjyv"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3j32"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pams4"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_082kj"]
+atlas = ExtResource("2_nmgr0")
+region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lhsd7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e3lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl8o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3j5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c33v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3fqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dw7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd14t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4gne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7jk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5qi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_row8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_878x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcjyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3j32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pams4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_082kj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_benlr"]
-radius = 30.0
+radius = 18.6786
 
-[node name="Deployment Zone" type="Node2D"]
+[node name="Deployment Zone" type="StaticBody2D" groups=["deployment_zones"]]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_vdb8t")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lhsd7")
+frame_progress = 0.914329
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_benlr")
 debug_color = Color(0.941176, 0.172549, 0.886275, 0.729412)
-
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

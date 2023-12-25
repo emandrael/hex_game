@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://tnvxx2x8ktsa"]
+[gd_scene load_steps=141 format=3 uid="uid://tnvxx2x8ktsa"]
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/GameManager/SimpleManager/SimpleGameManager.gd" id="1_id0ua"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Board/Board.gd" id="2_620e6"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" path="res://Scripts/Gameplay/TravelManager.gd" id="5_15wj0"]
 [ext_resource type="PackedScene" uid="uid://dgrsufvk0r3kf" path="res://Nodes/Board_Tile.tscn" id="5_f6n6d"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Tile/Tile.gd" id="5_j0c67"]
+[ext_resource type="Texture2D" uid="uid://bsfh5880eqopn" path="res://Sprite-0001.png" id="6_2fh5v"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/SelectionManager.gd" id="6_5gv8b"]
-[ext_resource type="PackedScene" uid="uid://d87eoq8kyhl1" path="res://Nodes/Card.tscn" id="6_x6mpe"]
+[ext_resource type="Script" path="res://Nodes/Card.gd" id="6_lsipv"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/DebugManager.gd" id="7_gek6n"]
 [ext_resource type="PackedScene" uid="uid://dph0dgk2n21js" path="res://Nodes/GamePieces/EnemyPiece.tscn" id="9_pklhs"]
 [ext_resource type="PackedScene" uid="uid://b5ufkok63cpe8" path="res://Nodes/GamePieces/PlayerPiece.tscn" id="10_3fcu5"]
@@ -812,6 +813,9 @@ hex_coordinate = SubResource("Resource_7u046")
 board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(332.554, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
 
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6nxh"]
+size = Vector2(40, 40)
+
 [node name="SimpleGameManager" type="Node2D"]
 position = Vector2(400, 369)
 script = ExtResource("1_id0ua")
@@ -908,6 +912,24 @@ map = {
 "4 -4 0 ": SubResource("Resource_wkhd4"),
 "4 0 -4 ": SubResource("Resource_a23vv")
 }
+
+[node name="Card Manager" type="Node2D" parent="Board"]
+
+[node name="Hand" type="Node2D" parent="Board/Card Manager"]
+position = Vector2(-348, 194)
+
+[node name="Card" type="Node2D" parent="Board/Card Manager/Hand"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("6_lsipv")
+
+[node name="Area2D" type="Area2D" parent="Board/Card Manager/Hand/Card"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Card Manager/Hand/Card/Area2D"]
+shape = SubResource("RectangleShape2D_b6nxh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Card Manager/Hand/Card"]
+self_modulate = Color(0, 0.662745, 1, 1)
+texture = ExtResource("6_2fh5v")
 
 [node name="Layout" type="Node2D" parent="Board"]
 script = ExtResource("3_bulrf")
@@ -1220,17 +1242,6 @@ z_index = -14
 position = Vector2(332.554, 0)
 metadata/_edit_lock_ = true
 
-[node name="Deployment Zone Manager" type="Node2D" parent="Board"]
-script = ExtResource("11_vqwd0")
-
-[node name="Card Manager" type="Node2D" parent="Board"]
-
-[node name="Hand" type="Node2D" parent="Board/Card Manager"]
-position = Vector2(-348, 194)
-
-[node name="Card" parent="Board/Card Manager/Hand" instance=ExtResource("6_x6mpe")]
-game_piece_scene = ExtResource("10_3fcu5")
-
 [node name="Travel Manager" type="Node2D" parent="Board"]
 script = ExtResource("5_15wj0")
 
@@ -1249,8 +1260,12 @@ position = Vector2(0, 144)
 [node name="PlayerPiece2" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
 position = Vector2(-85, 135)
 
+[node name="Deployment Zone Manager" type="Node2D" parent="Board"]
+script = ExtResource("11_vqwd0")
+
 [node name="Debug Manager" type="Node2D" parent="Board"]
 script = ExtResource("7_gek6n")
 
 [connection signal="turn_change" from="." to="UI/Turn Label" method="_on_game_manager_turn_change"]
 [connection signal="pressed" from="UI/END TURN" to="." method="_on_end_turn_pressed"]
+[connection signal="input_event" from="Board/Card Manager/Hand/Card/Area2D" to="Board/Card Manager/Hand/Card" method="_on_area_2d_input_event"]

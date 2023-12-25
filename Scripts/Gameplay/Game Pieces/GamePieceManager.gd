@@ -14,6 +14,13 @@ func _enter_tree():
 	layout = board.layout;
 	print(layout)
 
+func _on_deploy(game_piece_scene : PackedScene, deployment_zone : DeploymentZone):
+	var game_piece : GamePiece = game_piece_scene.instantiate();
+	game_piece.position = HexHelper.hex_to_pixel(board.layout,deployment_zone.hex);
+	add_child(game_piece);
+	set_game_piece_location(game_piece);
+#	set_game_piece_location(game_piece);
+
 func set_game_piece_location(game_piece : GamePiece):
 	var point = game_piece.position;
 	var frac_hex = HexHelper.pixel_to_hex(board.layout,point);

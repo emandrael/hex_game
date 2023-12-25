@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://d87eoq8kyhl1"]
+
+[ext_resource type="Script" path="res://Nodes/Card.gd" id="1_eq26c"]
+[ext_resource type="Texture2D" uid="uid://bsfh5880eqopn" path="res://Sprite-0001.png" id="2_28lrq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2j48"]
+radius = 7.36357
+
+[node name="Card" type="Node2D" groups=["cards"]]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_eq26c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.662745, 1, 1)
+texture = ExtResource("2_28lrq")
+
+[node name="MouseRegion" type="Button" parent="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(4.76837e-07, 0.666667)
+shape = SubResource("CircleShape2D_p2j48")
+
+[connection signal="pressed" from="Sprite2D/MouseRegion" to="." method="_on_mouse_region_pressed"]
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_exited"]
