@@ -813,30 +813,32 @@ board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":
 
 
 [node name="SimpleGameManager" type="Node2D"]
-position = Vector2(400, 369)
+position = Vector2(969, 454)
 script = ExtResource("1_id0ua")
 current_phase = 1
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -285.0
+offset_top = -151.0
+offset_right = -245.0
+offset_bottom = -111.0
 
 [node name="END TURN" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 232.0
-offset_top = 314.0
-offset_right = 369.0
-offset_bottom = 388.0
+offset_left = 611.0
+offset_top = 452.0
+offset_right = 889.0
+offset_bottom = 574.0
 text = "END TURN"
 
 [node name="Turn Label" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = -382.0
-offset_top = -352.0
-offset_right = -268.0
-offset_bottom = -300.0
+offset_left = 652.0
+offset_top = 329.0
+offset_right = 846.0
+offset_bottom = 381.0
 text = "Player Turn
 "
 label_settings = SubResource("LabelSettings_qjjv6")
@@ -844,6 +846,7 @@ script = ExtResource("2_idqqp")
 
 [node name="Board" type="Node2D" parent="."]
 z_index = -1
+position = Vector2(-193, -71)
 script = ExtResource("2_620e6")
 map = {
 "-1 -1 2 ": SubResource("Resource_kfhtt"),
@@ -1226,7 +1229,7 @@ script = ExtResource("11_vqwd0")
 [node name="Card Manager" type="Node2D" parent="Board"]
 
 [node name="Hand" type="Node2D" parent="Board/Card Manager"]
-position = Vector2(-348, 194)
+position = Vector2(3, 429)
 
 [node name="Card" parent="Board/Card Manager/Hand" instance=ExtResource("6_x6mpe")]
 game_piece_scene = ExtResource("10_3fcu5")
@@ -1250,7 +1253,10 @@ position = Vector2(0, 144)
 position = Vector2(-85, 135)
 
 [node name="Debug Manager" type="Node2D" parent="Board"]
+z_index = -3
+z_as_relative = false
 script = ExtResource("7_gek6n")
+show_debug_hex_coords = true
 
 [connection signal="turn_change" from="." to="UI/Turn Label" method="_on_game_manager_turn_change"]
 [connection signal="pressed" from="UI/END TURN" to="." method="_on_end_turn_pressed"]

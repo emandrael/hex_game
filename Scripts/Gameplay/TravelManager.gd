@@ -89,9 +89,15 @@ func _on_travel_from(piece:GamePiece,hex : Hex):
 		add_child(zone);
 
 func _on_travel_to(hex,travel_cost,route):
+
+	if board.is_tile_unoccupied_at_hex(hex):
+		self.queue_redraw()
+		return
 	if selected_hex == null || selected_game_piece == null:
 		return;
 	delete_travel_nodes.emit()
+	# If there is a unit at the location of the selected travel, the the unit won't move there.
+	
 	# Unit that was on the previous hex becomes null.
 	(map[str(selected_hex)] as Tile).unit = null;
 	# Unit that was on the previous hex becomes null.

@@ -1,20 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://d87eoq8kyhl1"]
+[gd_scene load_steps=6 format=3 uid="uid://d87eoq8kyhl1"]
 
 [ext_resource type="Script" path="res://Nodes/Card.gd" id="1_eq26c"]
-[ext_resource type="Texture2D" uid="uid://bsfh5880eqopn" path="res://Sprite-0001.png" id="2_28lrq"]
+[ext_resource type="Texture2D" uid="uid://ca241b4nyg3vn" path="res://Sprites/card.png" id="2_yuid7"]
+[ext_resource type="FontFile" uid="uid://min08d0ahx52" path="res://Tomorrow_Night.ttf" id="3_5dr0u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2j48"]
 radius = 7.36357
+
+[sub_resource type="Theme" id="Theme_duy1u"]
+default_font = ExtResource("3_5dr0u")
+default_font_size = 11
 
 [node name="Card" type="Node2D" groups=["cards"]]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_eq26c")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0.662745, 1, 1)
-texture = ExtResource("2_28lrq")
+[node name="Card" type="Sprite2D" parent="."]
+texture = ExtResource("2_yuid7")
+hframes = 2
+frame = 1
 
-[node name="MouseRegion" type="Button" parent="Sprite2D"]
+[node name="MouseRegion" type="Button" parent="Card"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,12 +33,20 @@ grow_horizontal = 2
 grow_vertical = 2
 action_mode = 0
 
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
+[node name="Area2D" type="Area2D" parent="Card"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card/Area2D"]
 position = Vector2(4.76837e-07, 0.666667)
 shape = SubResource("CircleShape2D_p2j48")
 
-[connection signal="pressed" from="Sprite2D/MouseRegion" to="." method="_on_mouse_region_pressed"]
-[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Card"]
+offset_left = -48.0
+offset_top = -79.3333
+offset_right = -8.0
+offset_bottom = -39.3333
+theme = SubResource("Theme_duy1u")
+text = "DE"
+
+[connection signal="pressed" from="Card/MouseRegion" to="." method="_on_mouse_region_pressed"]
+[connection signal="body_entered" from="Card/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Card/Area2D" to="." method="_on_area_2d_body_exited"]

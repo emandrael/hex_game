@@ -22,14 +22,19 @@ func _ready():
 func _on_game_piece_finished_moving(game_piece:GamePiece):
 	spawn_all_deployment_zones_for_owner(game_piece.ownership)
 
+func _on_deploy(game_piece_scene : PackedScene, deployment_zone : DeploymentZone):
+	var game_piece : GamePiece =  game_piece_scene.instantiate()
+	spawn_all_deployment_zones_for_owner(game_piece.ownership)
+
 func _on_turn_change(state : Turn.State):
 	spawn_all_deployment_zones_for_owner(state)
 
 func spawn_all_deployment_zones_for_owner(state : Turn.State):
-	print('Spawn')
 	all_zones.clear()
 	delete_deployment_nodes.emit()
 	var all_units : Array[GamePiece] = [] 
+	if state == Turn.State.ENEMY:
+		return;
 	all_units.append_array(player_units)
 	all_units.append_array(enemy_units)
 	for unit in all_units:
@@ -48,7 +53,10 @@ func spawn_deployment_zones_at_unit_neigbours(node_scene:PackedScene,game_piece:
 				var new_zone : DeploymentZone = node_scene.instantiate()
 				
 				game_piece.is_moving.connect(new_zone.queue_free)
-				game_piece.is_finished_moving.connect(_on_game_piece_finished_moving);
+				
+				if not game_piece.is_finished_moving.is_connected(_on_game_piece_finished_moving):
+					game_piece.is_finished_moving.connect(_on_game_piece_finished_moving);
+				
 				new_zone.hex = neighbour;
 				new_zone.position = point;
 				all_zones[str(neighbour)] = new_zone;

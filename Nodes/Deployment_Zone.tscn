@@ -131,6 +131,7 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_vdb8t")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_lhsd7")
 frame_progress = 0.914329
 

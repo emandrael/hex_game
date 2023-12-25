@@ -7,7 +7,9 @@ signal deploy(game_piece_scene : PackedScene, deployment_zone : DeploymentZone);
 var is_in_draggable_zone : bool;
 @export var game_piece_scene : PackedScene;
 @export var zone_ref : DeploymentZone;
-@onready var game_piece_manager : GamePieceManager = get_parent().get_parent().get_parent().get_node('Game Piece Manager')
+@onready var board : Board = get_parent().get_parent().get_parent();
+@onready var game_piece_manager : GamePieceManager = board.get_node('Game Piece Manager')
+@onready var deployment_zone_manager : DeploymentZoneManager = board.get_node('Deployment Zone Manager')
 
 
 var held : bool = false :
@@ -24,6 +26,7 @@ var offset : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	deploy.connect(game_piece_manager._on_deploy)
+	deploy.connect(deployment_zone_manager._on_deploy)
 
 func _process(delta):
 	if Input.is_action_just_released("M1"):
