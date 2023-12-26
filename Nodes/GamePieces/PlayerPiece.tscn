@@ -126,9 +126,10 @@ unit = ExtResource("2_5rivm")
 shape = SubResource("CapsuleShape2D_1hcx5")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_8g388")
 autoplay = "default"
-frame_progress = 0.258101
+frame_progress = 0.590344
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

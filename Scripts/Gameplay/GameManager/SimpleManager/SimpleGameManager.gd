@@ -9,6 +9,7 @@ signal turn_change(state : Turn.State)
 
 func _ready():
 	turn_change.emit(current_turn);
+	print(get_incoming_connections().size())
 
 func _on_end_turn_pressed():
 	process_turn(current_turn)

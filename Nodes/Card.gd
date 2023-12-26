@@ -9,7 +9,7 @@ var is_in_draggable_zone : bool;
 @export var zone_ref : DeploymentZone;
 @onready var board : Board = get_parent().get_parent().get_parent();
 @onready var game_piece_manager : GamePieceManager = board.get_node('Game Piece Manager')
-@onready var deployment_zone_manager : DeploymentZoneManager = board.get_node('Deployment Zone Manager')
+@onready var deployment_zone_manager : DeploymentZoneManager = board.get_node('Deployment Manager')
 
 
 var held : bool = false :

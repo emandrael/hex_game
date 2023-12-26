@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ujawmcdnhpxy"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/Zones/AttackZone.gd" id="1_tvrov"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_benlr"]
+radius = 30.0
+
+[node name="Attack Zone" type="Node2D"]
+script = ExtResource("1_tvrov")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_benlr")
+debug_color = Color(0.94902, 0, 0, 1)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

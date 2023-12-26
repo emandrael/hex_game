@@ -5,12 +5,12 @@
 [ext_resource type="Script" path="res://Scripts/UI/TurnLabel.gd" id="2_idqqp"]
 [ext_resource type="Script" path="res://Scripts/Grid Scripts/Layout.gd" id="3_bulrf"]
 [ext_resource type="Script" path="res://Scripts/Grid Scripts/Hex.gd" id="4_uwt01"]
-[ext_resource type="Script" path="res://Scripts/Gameplay/TravelManager.gd" id="5_15wj0"]
 [ext_resource type="PackedScene" uid="uid://dgrsufvk0r3kf" path="res://Nodes/Board_Tile.tscn" id="5_f6n6d"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Tile/Tile.gd" id="5_j0c67"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/SelectionManager.gd" id="6_5gv8b"]
 [ext_resource type="PackedScene" uid="uid://d87eoq8kyhl1" path="res://Nodes/Card.tscn" id="6_x6mpe"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/DebugManager.gd" id="7_gek6n"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/TravelAttackManager.gd" id="9_nqovj"]
 [ext_resource type="PackedScene" uid="uid://dph0dgk2n21js" path="res://Nodes/GamePieces/EnemyPiece.tscn" id="9_pklhs"]
 [ext_resource type="PackedScene" uid="uid://b5ufkok63cpe8" path="res://Nodes/GamePieces/PlayerPiece.tscn" id="10_3fcu5"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/DeploymentZoneManager.gd" id="11_vqwd0"]
@@ -834,11 +834,16 @@ offset_bottom = 574.0
 text = "END TURN"
 
 [node name="Turn Label" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 652.0
-offset_top = 329.0
-offset_right = 846.0
-offset_bottom = 381.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -16.927
+anchor_top = -7.439
+anchor_right = 22.985
+anchor_bottom = 14.789
+offset_left = 1329.08
+offset_top = 626.56
+offset_right = -73.4
+offset_bottom = -210.56
 text = "Player Turn
 "
 label_settings = SubResource("LabelSettings_qjjv6")
@@ -1223,8 +1228,23 @@ z_index = -14
 position = Vector2(332.554, 0)
 metadata/_edit_lock_ = true
 
-[node name="Deployment Zone Manager" type="Node2D" parent="Board"]
+[node name="Deployment Manager" type="Node2D" parent="Board"]
 script = ExtResource("11_vqwd0")
+
+[node name="Travel_Attack Manager" type="Node2D" parent="Board"]
+script = ExtResource("9_nqovj")
+
+[node name="Game Piece Manager" type="Node2D" parent="Board"]
+script = ExtResource("13_0guku")
+
+[node name="EnemyPiece2" parent="Board/Game Piece Manager" instance=ExtResource("9_pklhs")]
+position = Vector2(36, 68)
+
+[node name="PlayerPiece" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
+position = Vector2(91, 145)
+
+[node name="PlayerPiece2" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
+position = Vector2(-85, 135)
 
 [node name="Card Manager" type="Node2D" parent="Board"]
 
@@ -1234,23 +1254,9 @@ position = Vector2(3, 429)
 [node name="Card" parent="Board/Card Manager/Hand" instance=ExtResource("6_x6mpe")]
 game_piece_scene = ExtResource("10_3fcu5")
 
-[node name="Travel Manager" type="Node2D" parent="Board"]
-script = ExtResource("5_15wj0")
-
 [node name="Selection Manager" type="Node2D" parent="Board"]
 script = ExtResource("6_5gv8b")
-
-[node name="Game Piece Manager" type="Node2D" parent="Board"]
-script = ExtResource("13_0guku")
-
-[node name="EnemyPiece2" parent="Board/Game Piece Manager" instance=ExtResource("9_pklhs")]
-position = Vector2(6, -146)
-
-[node name="PlayerPiece" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
-position = Vector2(0, 144)
-
-[node name="PlayerPiece2" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
-position = Vector2(-85, 135)
+debug = false
 
 [node name="Debug Manager" type="Node2D" parent="Board"]
 z_index = -3

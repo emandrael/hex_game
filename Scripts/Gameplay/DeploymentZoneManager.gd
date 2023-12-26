@@ -48,7 +48,7 @@ func spawn_deployment_zones_at_unit_neigbours(node_scene:PackedScene,game_piece:
 		# Checks if the map has a tile with 
 		# the neighbours coords.
 		if map.has(str(neighbour)) && !all_zones.has(str(neighbour)):
-			if board.is_tile_occupied_at_hex(neighbour):
+			if board.is_tile_free_at_hex(neighbour):
 				var point = HexHelper.hex_to_pixel(layout,neighbour);
 				var new_zone : DeploymentZone = node_scene.instantiate()
 				
