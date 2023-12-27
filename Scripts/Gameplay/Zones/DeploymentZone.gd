@@ -22,3 +22,7 @@ func _process(delta):
 	else:
 		sprite.visible = false;
 		sprite.pause()
+
+func set_debug(_debug : bool):
+	var collision_shape : CollisionShape2D = get_node('CollisionShape2D')
+	collision_shape.visible = _debug;

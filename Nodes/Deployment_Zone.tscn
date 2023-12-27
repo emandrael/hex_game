@@ -137,4 +137,4 @@ frame_progress = 0.914329
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_benlr")
-debug_color = Color(0.941176, 0.172549, 0.886275, 0.729412)
+debug_color = Color(0, 0.698039, 0.462745, 0.729412)

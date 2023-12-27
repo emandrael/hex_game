@@ -22,6 +22,29 @@ static func hex_lerp(a, b,t:float):
 						lerp(a.r, b.r, t),
 						lerp(a.s, b.s, t));
 
+static func hex_direction(direction:int):
+	assert (0 <= direction && direction < 6, "Value not below 6")
+	direction = (6 + (direction % 6)) % 6;
+	var dir = HexDirections.new().directions;
+	return dir[direction];
+
+static func get_hex_direction(from:Hex,to:Hex) -> int:
+	var hex = to.hex_subtract(from);
+	if hex.q == 1 && hex.r == 0 && hex.s == -1:
+		return 1;
+	elif hex.q == 1 && hex.r == -1 && hex.s == 0:
+		return 2
+	elif hex.q == 0 && hex.r == -1 && hex.s == 1:
+		return 3
+	elif hex.q == -1 && hex.r == 0 && hex.s == 1:
+		return 4
+	elif hex.q == -1 && hex.r == 1 && hex.s == 0:
+		return 5
+	elif hex.q == 0 && hex.r == 1 && hex.s == -1:
+		return 6
+	return -1;
+		
+
 static func hex_linedraw(a:Hex,b:Hex) -> Array[Hex]:
 	var N = a.hex_distance_from(b);
 	var a_nudge = FractionalHex.new(a.q + 1e-06, a.r + 1e-06, a.s - 2e-06)

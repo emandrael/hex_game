@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://tnvxx2x8ktsa"]
+[gd_scene load_steps=142 format=3 uid="uid://tnvxx2x8ktsa"]
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/GameManager/SimpleManager/SimpleGameManager.gd" id="1_id0ua"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Board/Board.gd" id="2_620e6"]
@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://d87eoq8kyhl1" path="res://Nodes/Card.tscn" id="6_x6mpe"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/DebugManager.gd" id="7_gek6n"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/TravelAttackManager.gd" id="9_nqovj"]
-[ext_resource type="PackedScene" uid="uid://dph0dgk2n21js" path="res://Nodes/GamePieces/EnemyPiece.tscn" id="9_pklhs"]
-[ext_resource type="PackedScene" uid="uid://b5ufkok63cpe8" path="res://Nodes/GamePieces/PlayerPiece.tscn" id="10_3fcu5"]
+[ext_resource type="PackedScene" uid="uid://b5ufkok63cpe8" path="res://Nodes/GamePieces/Ilena.tscn" id="10_3fcu5"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/Unit.gd" id="10_ktlp4"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/DeploymentZoneManager.gd" id="11_vqwd0"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePieceManager.gd" id="13_0guku"]
+[ext_resource type="PackedScene" uid="uid://dph0dgk2n21js" path="res://Nodes/GamePieces/Kaleos.tscn" id="15_2xiba"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjjv6"]
 font_size = 35
@@ -812,6 +813,20 @@ hex_coordinate = SubResource("Resource_7u046")
 board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(332.554, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
 
 
+[sub_resource type="Resource" id="Resource_a3awi"]
+script = ExtResource("10_ktlp4")
+unit_name = "Ilena 2"
+unit_type = 0
+health = 25
+attack = 2
+
+[sub_resource type="Resource" id="Resource_cyo0r"]
+script = ExtResource("10_ktlp4")
+unit_name = "Kaloes"
+unit_type = 0
+health = 2
+attack = 10
+
 [node name="SimpleGameManager" type="Node2D"]
 position = Vector2(969, 454)
 script = ExtResource("1_id0ua")
@@ -1228,23 +1243,33 @@ z_index = -14
 position = Vector2(332.554, 0)
 metadata/_edit_lock_ = true
 
-[node name="Deployment Manager" type="Node2D" parent="Board"]
-script = ExtResource("11_vqwd0")
-
-[node name="Travel_Attack Manager" type="Node2D" parent="Board"]
-script = ExtResource("9_nqovj")
-
 [node name="Game Piece Manager" type="Node2D" parent="Board"]
 script = ExtResource("13_0guku")
-
-[node name="EnemyPiece2" parent="Board/Game Piece Manager" instance=ExtResource("9_pklhs")]
-position = Vector2(36, 68)
 
 [node name="PlayerPiece" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
 position = Vector2(91, 145)
 
 [node name="PlayerPiece2" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
 position = Vector2(-85, 135)
+unit = SubResource("Resource_a3awi")
+
+[node name="Kaleos" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
+position = Vector2(-4, -143)
+unit = SubResource("Resource_cyo0r")
+
+[node name="Kaleos2" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
+position = Vector2(-79, -166)
+unit = SubResource("Resource_cyo0r")
+
+[node name="Kaleos3" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
+position = Vector2(83, -157)
+unit = SubResource("Resource_cyo0r")
+
+[node name="Deployment Manager" type="Node2D" parent="Board"]
+script = ExtResource("11_vqwd0")
+
+[node name="Travel_Attack Manager" type="Node2D" parent="Board"]
+script = ExtResource("9_nqovj")
 
 [node name="Card Manager" type="Node2D" parent="Board"]
 

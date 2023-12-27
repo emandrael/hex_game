@@ -28,8 +28,4 @@ func _on_area_2d_input_event(viewport, event:InputEvent, shape_idx):
 
 func set_debug(_debug : bool):
 	var collision_shape : CollisionShape2D = get_node('Area2D/CollisionShape2D')
-	match _debug:
-		true:
-			collision_shape.debug_color.a = 0.3;
-		false:
-			collision_shape.debug_color.a = 0;
+	collision_shape.visible = _debug;

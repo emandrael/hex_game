@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_2u3oy")
-unit_name = "Barry"
+unit_name = "Kaleos"
 unit_type = 0
-health = 25
-attack = 2
+health = 2
+attack = 10

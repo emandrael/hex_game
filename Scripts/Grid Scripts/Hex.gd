@@ -65,11 +65,7 @@ func is_in(array_of_hexes : Array[Hex]):
 func is_not_in(array_of_hexes : Array[Hex]):
 	return !is_in(array_of_hexes);
 
-func hex_direction(direction:int):
-	assert (0 <= direction && direction < 6, "Value not below 6")
-	direction = (6 + (direction % 6)) % 6;
-	var dir = HexDirections.new().directions;
-	return dir[direction];
+
 
 func get_hex_neighbours() -> Array[Hex]:
 	var neighbours : Array[Hex] = []
@@ -79,7 +75,7 @@ func get_hex_neighbours() -> Array[Hex]:
 	return neighbours;
 
 func hex_neighbor_at(direction:int):
-	return hex_add(hex_direction(direction));
+	return hex_add(HexHelper.hex_direction(direction));
 
 func _to_string():
 #	return ('q:'+str(q) + ' ' + 'r:'+str(r) + ' ' + 's:'+str(s) + ' ');

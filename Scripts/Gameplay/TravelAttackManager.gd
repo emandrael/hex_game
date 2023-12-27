@@ -2,7 +2,7 @@ extends Node2D
 
 class_name TravelAttackZonesManager
 
-signal delete_travel_nodes
+signal delete_travel_attack_nodes
 signal disable_units_but(Unit)
 signal re_enable_units
 
@@ -14,7 +14,10 @@ signal re_enable_units
 @export var selected_hex : Hex;
 @export var selected_game_piece : GamePiece;
 
-@export var debug : bool = true;
+@export var debug_travel : bool = true;
+@export var debug_attack : bool = true;
+
+
 
 func _draw():
 	var zone_colour = Color.PALE_GREEN;
@@ -42,7 +45,7 @@ func _draw():
 func _on_sprite_2d_select_unit(game_piece : GamePiece, hex):
 	if(selected_hex):
 		if(selected_hex.equal_to(hex)):
-			delete_travel_nodes.emit()
+			delete_travel_attack_nodes.emit()
 			queue_redraw()
 			selected_hex = null
 			return
@@ -59,7 +62,7 @@ func _on_unit_selected(piece:GamePiece,hex : Hex):
 	var units_total_steps = piece.total_steps;
 	if !selected_hex:
 		return
-	delete_travel_nodes.emit()
+	delete_travel_attack_nodes.emit()
 	
 	var all_travel_zones : Dictionary = {}
 	var neighbours = selected_hex.get_hex_neighbours()
@@ -74,7 +77,7 @@ func _on_unit_selected(piece:GamePiece,hex : Hex):
 					var new_travel_zone : TravelZone = (travel_zone.instantiate() as TravelZone)
 					new_travel_zone.init(point,1,neighbour,[neighbour])
 					
-					delete_travel_nodes.connect(new_travel_zone.queue_free)
+					delete_travel_attack_nodes.connect(new_travel_zone.queue_free)
 					
 					all_travel_zones[new_travel_zone.hex.to_string()] = new_travel_zone;
 					
@@ -86,19 +89,39 @@ func _on_unit_selected(piece:GamePiece,hex : Hex):
 							newer_travel_zone.init(snd_point,2,snd_neighbour,new_travel_zone.route_to_node.duplicate(true))
 							newer_travel_zone.route_to_node.append(snd_neighbour)
 							
-							delete_travel_nodes.connect(newer_travel_zone.queue_free)
+							delete_travel_attack_nodes.connect(newer_travel_zone.queue_free)
 							
 							all_travel_zones[newer_travel_zone.hex.to_string()] = newer_travel_zone;
 			elif (map[str(neighbour)] as Tile).unit.ownership != selected_game_piece.ownership && selected_game_piece.total_attacks >= 1:
 				var new_attack_zone : AttackZone = (attack_zone.instantiate() as AttackZone)
 				new_attack_zone.init(point,neighbour)
-				delete_travel_nodes.connect(new_attack_zone.queue_free)
+				new_attack_zone.defending_game_piece = (map[str(neighbour)] as Tile).unit
+				delete_travel_attack_nodes.connect(new_attack_zone.queue_free)
 				all_travel_zones[str(neighbour)] = new_attack_zone;
 
 	for zone in (all_travel_zones.values()):
-		zone.set_debug(debug);
+		if zone is AttackZone:
+			zone.set_debug(debug_attack);
+		else:
+			zone.set_debug(debug_travel);
 		add_child(zone);
 
+@export var can_attack : bool = true;
+func _on_attack_unit(defending_game_piece:GamePiece):
+	delete_travel_attack_nodes.emit()
+	self.queue_redraw()
+	if not can_attack:
+		return;
+	if selected_game_piece.piece_state == GamePiece.GamePieceState.ATTACKING || defending_game_piece.piece_state == GamePiece.GamePieceState.ATTACKING:
+		return;
+	if selected_hex == null || selected_game_piece == null || defending_game_piece == null:
+		return;
+	can_attack = false;
+	selected_game_piece.attack(defending_game_piece);
+	await defending_game_piece.anim_player.animation_finished;
+	can_attack = true;
+
+	
 func _on_travel_to(hex,travel_cost,route):
 
 	if board.is_tile_not_free_at_hex(hex):
@@ -106,7 +129,7 @@ func _on_travel_to(hex,travel_cost,route):
 		return
 	if selected_hex == null || selected_game_piece == null:
 		return;
-	delete_travel_nodes.emit()
+	delete_travel_attack_nodes.emit()
 	# If there is a unit at the location of the selected travel, the the unit won't move there.
 	
 	# Unit that was on the previous hex becomes null.

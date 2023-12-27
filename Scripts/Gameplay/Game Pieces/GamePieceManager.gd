@@ -2,17 +2,30 @@ extends Node2D
 
 class_name GamePieceManager
 
+
+signal redeploy_zones
+
 @export var player_units : Array[GamePiece] = []
 @export var enemy_units : Array[GamePiece] = []
 
 var board : Board;
 var layout: Layout;
 var map : Dictionary;
+@onready var deployment_zone_manager : DeploymentZoneManager = board.get_node('Deployment Manager');
 func _enter_tree():
 	board = get_parent();
 	map = board.map;
 	layout = board.layout;
+	
 	print(layout)
+
+
+func _on_death_animation_finished(game_piece:GamePiece):
+	print('Death for',game_piece.ownership)
+	player_units = player_units.filter(func(_game_piece): return game_piece != _game_piece)
+	enemy_units = enemy_units.filter(func(_game_piece): return game_piece != _game_piece)
+	deployment_zone_manager.player_units = player_units;
+	deployment_zone_manager.enemy_units = enemy_units;
 
 func _on_deploy(game_piece_scene : PackedScene, deployment_zone : DeploymentZone):
 	var game_piece : GamePiece = game_piece_scene.instantiate();
@@ -29,6 +42,8 @@ func set_game_piece_location(game_piece : GamePiece):
 	
 	game_piece.hex = round_hex;
 	game_piece.position = hex_world_pos;
+	if not game_piece.death_animation_finished.is_connected(_on_death_animation_finished):
+		game_piece.death_animation_finished.connect(_on_death_animation_finished)
 	
 	(map[(game_piece.hex.get_key())] as Tile).set_unit_with_hex(game_piece)
 	
@@ -44,9 +59,7 @@ func set_all_game_piece_locations(game_pieces : Array[Node]):
 
 func _ready():
 	var children = get_children()
-	print((children) is Array[GamePiece])
 	set_all_game_piece_locations(children)
-	
 #	for _tile in map.values():
 #		var point = HexHelper.hex_to_pixel(layout,_tile.hex_coordinate);
 #		if _tile.hex_coordinate.q == 1  && _tile.hex_coordinate.r == -1 && _tile.hex_coordinate.s == 0:
