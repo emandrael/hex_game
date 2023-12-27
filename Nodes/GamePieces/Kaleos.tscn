@@ -1,0 +1,307 @@
+[gd_scene load_steps=18 format=3 uid="uid://dph0dgk2n21js"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePiece.gd" id="1_ruqwj"]
+[ext_resource type="Resource" uid="uid://ds4bxtlfy82ft" path="res://Resources/Captains/Barry.tres" id="2_r4wnl"]
+[ext_resource type="Texture2D" uid="uid://dm4vemlr51bii" path="res://Sprites/Generals/RED/KALEOS/KALEOS.png" id="3_wlkma"]
+[ext_resource type="Texture2D" uid="uid://bjpfign3a5c4x" path="res://Sprites/health_attack.png" id="4_71wev"]
+[ext_resource type="Texture2D" uid="uid://0h5kvo3csq4l" path="res://Sprites/Generals/RED/KALEOS/KALEOS_ATTACK.png" id="4_hadud"]
+[ext_resource type="FontFile" uid="uid://bdh1otp7takw0" path="res://Nodes/Tomorrow_Night.ttf" id="5_48w60"]
+[ext_resource type="Texture2D" uid="uid://dibu5naxdtqst" path="res://Sprites/Generals/RED/KALEOS/KALEOS_DEATH.png" id="5_mqcir"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hcx5"]
+radius = 14.6666
+height = 29.3333
+
+[sub_resource type="Animation" id="Animation_6myga"]
+resource_name = "attack"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit_Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("4_hadud")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Unit_Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [18]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"do_damage"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xf7cs"]
+resource_name = "death"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit_Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("5_mqcir")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Unit_Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [14]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Unit_Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.0666667, 0, 0.545098)]
+}
+
+[sub_resource type="Animation" id="Animation_nukcn"]
+resource_name = "idle"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_wlkma")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit_Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [14]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Unit_Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_j0rne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit_Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wkpjm"]
+_data = {
+"RESET": SubResource("Animation_j0rne"),
+"attack": SubResource("Animation_6myga"),
+"death": SubResource("Animation_xf7cs"),
+"idle": SubResource("Animation_nukcn")
+}
+
+[sub_resource type="Animation" id="Animation_ioyp1"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_pwemr"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit_Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1e-05, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tyajh"]
+_data = {
+"RESET": SubResource("Animation_ioyp1"),
+"hit": SubResource("Animation_pwemr")
+}
+
+[sub_resource type="Theme" id="Theme_ijcst"]
+default_font = ExtResource("5_48w60")
+
+[node name="Kaleos" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(-50, -10)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_ruqwj")
+ownership = 1
+unit = ExtResource("2_r4wnl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_1hcx5")
+
+[node name="SpriteAnimator" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_wkpjm")
+}
+
+[node name="BuffDebuffAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tyajh")
+}
+
+[node name="Unit_Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("5_mqcir")
+hframes = 14
+frame = 1
+
+[node name="Health" type="Sprite2D" parent="."]
+position = Vector2(-12, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_71wev")
+hframes = 2
+
+[node name="Label" type="Label" parent="Health"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.15
+offset_top = -10.705
+offset_right = 20.85
+offset_bottom = 22.295
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.265, 0.265)
+theme = SubResource("Theme_ijcst")
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Attack" type="Sprite2D" parent="."]
+position = Vector2(12, 12)
+scale = Vector2(1.455, 1.455)
+texture = ExtResource("4_71wev")
+hframes = 2
+frame = 1
+
+[node name="Label" type="Label" parent="Attack"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.15
+offset_top = -10.705
+offset_right = 20.85
+offset_bottom = 22.295
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.265, 0.265)
+theme = SubResource("Theme_ijcst")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
