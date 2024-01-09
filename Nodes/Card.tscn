@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d87eoq8kyhl1"]
 
 [ext_resource type="Script" path="res://Nodes/Card.gd" id="1_eq26c"]
-[ext_resource type="Texture2D" uid="uid://ca241b4nyg3vn" path="res://Sprites/card.png" id="2_yuid7"]
+[ext_resource type="Texture2D" uid="uid://cpexqpnmalv3m" path="res://Sprites/Cards/11.png" id="2_oej1t"]
 [ext_resource type="FontFile" uid="uid://min08d0ahx52" path="res://Tomorrow_Night.ttf" id="3_5dr0u"]
 [ext_resource type="FontFile" uid="uid://bdh1otp7takw0" path="res://Nodes/Tomorrow_Night.ttf" id="4_okj1s"]
 [ext_resource type="SpriteFrames" uid="uid://qwdovhc2a3wd" path="res://Sprites/Generals/BLUE/ILENA/ILENA_sprite_frames.tres" id="4_xwhug"]
@@ -22,9 +22,8 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_eq26c")
 
 [node name="Card" type="Sprite2D" parent="."]
-texture = ExtResource("2_yuid7")
-hframes = 2
-frame = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_oej1t")
 
 [node name="MouseRegion" type="Button" parent="Card"]
 self_modulate = Color(1, 1, 1, 0)
@@ -115,6 +114,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Card"]
+visible = false
 position = Vector2(0, -48)
 sprite_frames = ExtResource("4_xwhug")
 

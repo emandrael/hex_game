@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_3h32x")
-unit_name = "Ilena 1"
+unit_name = "Ilena"
 unit_type = 0
-health = 10
-attack = 2
+health = 20
+attack = 10
