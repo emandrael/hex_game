@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name TravelAttackZonesManager
+class_name ActionManager
 
 signal delete_travel_attack_nodes
 signal disable_units_but(Unit)
@@ -17,30 +17,113 @@ signal re_enable_units
 @export var debug_travel : bool = true;
 @export var debug_attack : bool = true;
 
+func get_selectable_tiles(tile_hex: Hex, distance_from_tile : int):
+	if tile_hex.key not in board.map:
+		return
+	
+	var frontier : Array[Hex] = [];
+	frontier.append(tile_hex)
+	
+	var reached : Dictionary = {};
 
+	while not frontier.is_empty():
+		var current_hex : Hex = frontier.pop_at(0)
+		
+		if current_hex.key not in board.map:
+			continue
+		
+		var neighbours_of_current_hex : Array[Hex] = current_hex.get_hex_neighbours()
+		
+		for neighbour in neighbours_of_current_hex:
+			if neighbour.key not in reached:
+				if neighbour.hex_distance_from(tile_hex) > distance_from_tile: # We can use this for set radiuses.
+					continue
+				if neighbour.key in board.map:
+					frontier.append(neighbour)
+					reached[neighbour.key] = neighbour
+	
+	var selection_tiles = reached.values();
+	
+	for tile in selection_tiles:
+		if board.is_tile_free_at_hex(tile):
+			var transparent_orange = Color.ORANGE_RED
+			transparent_orange.a = 0.2;
+			HexHelper.draw_hex(self,layout,tile,transparent_orange,transparent_orange);
+	
+	
+	
+
+func pathfinding_algroithm(starting_hex : Hex, goal_hex : Hex):
+	if starting_hex.key not in board.map or goal_hex.key not in board.map:
+		return
+	
+	var frontier : Array[Hex] = [];
+	frontier.append(starting_hex)
+	
+	var reached : Dictionary = {};
+	reached[str(starting_hex)] = starting_hex;
+	
+	var came_from : Dictionary = {}
+	came_from[starting_hex.key] = null
+
+	while not frontier.is_empty():
+		var current : Hex = frontier.pop_at(0)
+		
+		if current.key not in board.map:
+			continue
+		
+		if current == goal_hex:
+			break
+		
+		var neighbours_of_current : Array[Hex] = current.get_hex_neighbours()
+		for neighbour in neighbours_of_current:
+			if str(neighbour) not in reached:
+				if neighbour.hex_distance_from(starting_hex) > 2: # We can use this for set radiuses.
+					continue
+				if neighbour.key in board.map:
+					frontier.append(neighbour)
+					reached[str(neighbour)] = neighbour
+					came_from[neighbour.key] = current
+					
+	print()
+	var current = goal_hex;
+	var path = []
+	while current != starting_hex: 
+		path.append(current)
+		current = came_from[current.key]
+	path.append(starting_hex) # optional
+	path.reverse() # optional
+	
+	print(path)
 
 func _draw():
+	get_selectable_tiles(Hex.create_and_set_param(0,0,0),3);
 	var zone_colour = Color.PALE_GREEN;
-	zone_colour.a = 0.4
+	zone_colour.a = 1;
 	var game_piece_steps_left = 0;
 	if selected_game_piece:
 		game_piece_steps_left = selected_game_piece.total_steps;
 	if(selected_hex):
 		var neighbours : Array[Hex] = selected_hex.get_hex_neighbours()
+		
 		for neighbour in neighbours:
 			# Checks if the map has a tile with the neighbours coords.
 			if map.has(str(neighbour)):
+				print('map[str(neighbour)] as Tile).unit.ownership',(map[str(neighbour)] as Tile).unit)
 				if board.is_tile_free_at_hex(neighbour):
 					if selected_game_piece.total_steps > 0:
 						HexHelper.draw_hex(self,layout,neighbour,Color.TRANSPARENT,zone_colour)
 						var snd_neighbours = neighbour.get_hex_neighbours()
+
 						if game_piece_steps_left > 1:
 							for snd_neighbour in snd_neighbours:
 								if map.has(str(snd_neighbour)) && snd_neighbour.is_not_in(neighbours) && snd_neighbour.not_equal_to(selected_hex):
 									if board.is_tile_free_at_hex(snd_neighbour):
 										HexHelper.draw_hex(self,layout,snd_neighbour,Color.TRANSPARENT,zone_colour)
-				elif (map[str(neighbour)] as Tile).unit.ownership != selected_game_piece.ownership && selected_game_piece.total_attacks >= 1:
-					HexHelper.draw_hex(self,layout,neighbour,Color.TRANSPARENT,Color.RED)
+				elif board.is_tile_not_free_at_hex(neighbour):
+					var is_enemy = board.is_tile_not_free_at_hex(neighbour) and (map[str(neighbour)] as Tile).unit.ownership != selected_game_piece.ownership and selected_game_piece.total_attacks >= 1;
+					if is_enemy:
+						HexHelper.draw_hex(self,layout,neighbour,Color.TRANSPARENT,Color.RED)
 
 func _on_sprite_2d_select_unit(game_piece : GamePiece, hex):
 	if(selected_hex):
@@ -106,24 +189,25 @@ func _on_unit_selected(piece:GamePiece,hex : Hex):
 			zone.set_debug(debug_travel);
 		add_child(zone);
 
-@export var can_attack : bool = true;
+
+@export var able_to_attack : bool = true;
 func _on_attack_unit(defending_game_piece:GamePiece):
 	delete_travel_attack_nodes.emit()
 	self.queue_redraw()
-	if not can_attack:
+	if not able_to_attack:
 		return;
 	if selected_game_piece.piece_state == GamePiece.GamePieceState.ATTACKING || defending_game_piece.piece_state == GamePiece.GamePieceState.ATTACKING:
 		return;
 	if selected_hex == null || selected_game_piece == null || defending_game_piece == null:
 		return;
-	can_attack = false;
+	able_to_attack = false;
 	selected_game_piece.attack(defending_game_piece);
 	await defending_game_piece.anim_player.animation_finished;
-	can_attack = true;
+	able_to_attack = true;
 
 	
 func _on_travel_to(hex,travel_cost,route):
-
+	
 	if board.is_tile_not_free_at_hex(hex):
 		self.queue_redraw()
 		return

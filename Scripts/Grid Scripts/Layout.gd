@@ -9,9 +9,6 @@ class_name Layout
 @export var size:Vector2;
 @export var origin:Vector2;
 
-func gell():
-	print('sds')
-
 static func set_orientation(orientaion:Orientation.Types):
 	match orientaion:
 		Orientation.Types.FLAT:

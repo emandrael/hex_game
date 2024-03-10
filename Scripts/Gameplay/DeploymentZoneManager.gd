@@ -28,9 +28,6 @@ func _on_game_piece_finished_moving(game_piece:GamePiece):
 	spawn_all_deployment_zones_for_owner(game_piece.ownership)
 
 func _on_game_piece_battle_finished(game_piece:GamePiece):
-	print('battle finito')
-	print(player_units);
-	print(enemy_units);
 	spawn_all_deployment_zones_for_owner(game_piece.ownership)
 
 func _on_deploy(game_piece_scene : PackedScene, deployment_zone : DeploymentZone):

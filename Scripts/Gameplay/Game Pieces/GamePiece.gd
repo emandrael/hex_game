@@ -40,7 +40,7 @@ var move_commands : Array[Hex] = [];
 
 @onready var game_manager:GameManager = get_parent().get_parent().get_parent();
 @onready var board:Board = get_parent().get_parent();
-@onready var travel_zone_manager:TravelAttackZonesManager = board.get_node('Travel_Attack Manager');
+@onready var travel_zone_manager:ActionManager = board.get_node('ActionManager');
 @onready var sprite = get_node("Unit_Sprite")
 
 @onready var health_bubble : Sprite2D = get_node('Health');
@@ -82,7 +82,7 @@ func _process(delta):
 		
 		GamePieceState.TIRED:
 			pass
-		
+			
 		GamePieceState.DEATH:
 			# We need to add a new state called freed and assign it as soon as we start
 			# the death animation because we will be getting issues otherwise.
@@ -95,10 +95,9 @@ func _process(delta):
 			await self.tree_exited;
 			death_animation_finished.emit(self);
 			is_battle_finished.emit(self)
+		
 		GamePieceState.FREED:
 			pass;
-
-
 		
 		GamePieceState.ATTACKING:
 			anim_player.play('attack')

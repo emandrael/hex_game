@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5ufkok63cpe8"]
+[gd_scene load_steps=18 format=3 uid="uid://b5ufkok63cpe8"]
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePiece.gd" id="1_m7uml"]
 [ext_resource type="Resource" uid="uid://dmibqn8ygi3qs" path="res://Resources/Captains/Garry.tres" id="2_5rivm"]
@@ -224,13 +224,9 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_h8h6f"]
-resource_name = "non"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rsqt"]
 _data = {
-"hit": SubResource("Animation_8sp5b"),
-"non": SubResource("Animation_h8h6f")
+"hit": SubResource("Animation_8sp5b")
 }
 
 [sub_resource type="Theme" id="Theme_tb36f"]
@@ -246,6 +242,7 @@ unit = ExtResource("2_5rivm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_1hcx5")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="SpriteAnimator" type="AnimationPlayer" parent="."]
 speed_scale = 2.0

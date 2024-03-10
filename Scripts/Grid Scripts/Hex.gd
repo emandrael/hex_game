@@ -13,6 +13,12 @@ class_name Hex
 		return s;
 		
 
+var key : String:
+	get: 
+		return str(self); 
+
+
+
 func set_param(_q,_r,_s):
 	q = _q;
 	r = _r;
@@ -32,6 +38,7 @@ static func create_and_set_param(_q,_r,_s) -> Hex:
 	hex.s = _s;
 	assert((hex.q+hex.r+hex.s) == 0,'Coordinates do not add to 0'); 
 	return hex;
+
 
 func equal_to(b:Hex):
 	return q == b.q && r == b.r && s == b.s;
@@ -80,6 +87,10 @@ func hex_neighbor_at(direction:int):
 func _to_string():
 #	return ('q:'+str(q) + ' ' + 'r:'+str(r) + ' ' + 's:'+str(s) + ' ');
 	return (str(q) + ' ' +str(r) + ' ' + str(s) + ' ');
+
+static func from_key(key : String):
+	var vals = key.split(' ')
+	return Hex.create_and_set_param(int(vals[0]),int(vals[1]),int(vals[2]));
 
 func get_key() -> String:
 	return _to_string();

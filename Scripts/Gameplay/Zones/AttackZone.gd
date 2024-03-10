@@ -6,7 +6,7 @@ signal getting_attacked(game_piece:GamePiece)
 
 @export var hex:Hex;
 @export var defending_game_piece : GamePiece
-@onready var travel_attack_zone_manager : TravelAttackZonesManager = get_parent()
+@onready var travel_attack_zone_manager : ActionManager = get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

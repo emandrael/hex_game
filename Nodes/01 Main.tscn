@@ -1249,7 +1249,7 @@ unit = SubResource("Resource_cyo0r")
 [node name="Deployment Manager" type="Node2D" parent="Board"]
 script = ExtResource("11_vqwd0")
 
-[node name="Travel_Attack Manager" type="Node2D" parent="Board"]
+[node name="ActionManager" type="Node2D" parent="Board"]
 script = ExtResource("9_nqovj")
 
 [node name="Card Manager" type="Node2D" parent="Board"]

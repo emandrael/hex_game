@@ -1,0 +1,1279 @@
+[gd_scene load_steps=142 format=3 uid="uid://tnvxx2x8ktsa"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/GameManager/SimpleManager/SimpleGameManager.gd" id="1_id0ua"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Board/Board.gd" id="2_620e6"]
+[ext_resource type="Script" path="res://Scripts/UI/TurnLabel.gd" id="2_idqqp"]
+[ext_resource type="Script" path="res://Scripts/Grid Scripts/Layout.gd" id="3_bulrf"]
+[ext_resource type="Script" path="res://Scripts/Grid Scripts/Hex.gd" id="4_uwt01"]
+[ext_resource type="PackedScene" uid="uid://dgrsufvk0r3kf" path="res://Nodes/Board_Tile.tscn" id="5_f6n6d"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Tile/Tile.gd" id="5_j0c67"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/SelectionManager.gd" id="6_5gv8b"]
+[ext_resource type="PackedScene" uid="uid://d87eoq8kyhl1" path="res://Nodes/Card.tscn" id="6_x6mpe"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/DebugManager.gd" id="7_gek6n"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/TravelAttackManager.gd" id="9_nqovj"]
+[ext_resource type="PackedScene" uid="uid://b5ufkok63cpe8" path="res://Nodes/GamePieces/Ilena.tscn" id="10_3fcu5"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/Unit.gd" id="10_ktlp4"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/DeploymentZoneManager.gd" id="11_vqwd0"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePieceManager.gd" id="13_0guku"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/AttackActionManager.gd" id="14_4w8j4"]
+[ext_resource type="PackedScene" uid="uid://dph0dgk2n21js" path="res://Nodes/GamePieces/Kaleos.tscn" id="15_2xiba"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjjv6"]
+font_size = 35
+
+[sub_resource type="Resource" id="Resource_k8gan"]
+script = ExtResource("4_uwt01")
+q = -1
+r = -1
+s = 2
+
+[sub_resource type="Resource" id="Resource_kfhtt"]
+resource_name = "-1 -1 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_k8gan")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-124.708, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_0wfmu"]
+script = ExtResource("4_uwt01")
+q = -1
+r = -2
+s = 3
+
+[sub_resource type="Resource" id="Resource_ie8j0"]
+resource_name = "-1 -2 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_0wfmu")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_d43xv"]
+script = ExtResource("4_uwt01")
+q = -1
+r = -3
+s = 4
+
+[sub_resource type="Resource" id="Resource_7m3rl"]
+resource_name = "-1 -3 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_d43xv")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-207.846, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_4vbmn"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 0
+s = 1
+
+[sub_resource type="Resource" id="Resource_gdlpl"]
+resource_name = "-1 0 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_4vbmn")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_pc21v"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 1
+s = 0
+
+[sub_resource type="Resource" id="Resource_1ihf7"]
+resource_name = "-1 1 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_pc21v")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-41.5692, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_5yxp2"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 2
+s = -1
+
+[sub_resource type="Resource" id="Resource_7rpe4"]
+resource_name = "-1 2 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_5yxp2")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_wamwn"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 3
+s = -2
+
+[sub_resource type="Resource" id="Resource_hpcjq"]
+resource_name = "-1 3 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_wamwn")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(41.5692, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_iahvc"]
+script = ExtResource("4_uwt01")
+q = -1
+r = 4
+s = -3
+
+[sub_resource type="Resource" id="Resource_bvymq"]
+resource_name = "-1 4 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_iahvc")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-9,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_kteeb"]
+script = ExtResource("4_uwt01")
+q = -2
+r = -1
+s = 3
+
+[sub_resource type="Resource" id="Resource_axcda"]
+resource_name = "-2 -1 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_kteeb")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-207.846, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_okgas"]
+script = ExtResource("4_uwt01")
+q = -2
+r = -2
+s = 4
+
+[sub_resource type="Resource" id="Resource_6sw5w"]
+resource_name = "-2 -2 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_okgas")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-249.415, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_twsjs"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 0
+s = 2
+
+[sub_resource type="Resource" id="Resource_wwujo"]
+resource_name = "-2 0 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_twsjs")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_u6i74"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 1
+s = 1
+
+[sub_resource type="Resource" id="Resource_8a0q8"]
+resource_name = "-2 1 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_u6i74")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-124.708, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_pylta"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 2
+s = 0
+
+[sub_resource type="Resource" id="Resource_0tki2"]
+resource_name = "-2 2 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_pylta")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_mt6ey"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 3
+s = -1
+
+[sub_resource type="Resource" id="Resource_c12ie"]
+resource_name = "-2 3 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_mt6ey")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-41.5692, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_7opw1"]
+script = ExtResource("4_uwt01")
+q = -2
+r = 4
+s = -2
+
+[sub_resource type="Resource" id="Resource_v13tl"]
+resource_name = "-2 4 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_7opw1")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-8,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_0mi8h"]
+script = ExtResource("4_uwt01")
+q = -3
+r = -1
+s = 4
+
+[sub_resource type="Resource" id="Resource_qpdy5"]
+resource_name = "-3 -1 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_0mi8h")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-290.985, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_3nc0j"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 0
+s = 3
+
+[sub_resource type="Resource" id="Resource_my1tm"]
+resource_name = "-3 0 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_3nc0j")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-249.415, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_41ir8"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 1
+s = 2
+
+[sub_resource type="Resource" id="Resource_sxx0o"]
+resource_name = "-3 1 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_41ir8")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-207.846, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_gjyug"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 2
+s = 1
+
+[sub_resource type="Resource" id="Resource_gqjk0"]
+resource_name = "-3 2 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_gjyug")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_v4e0a"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 3
+s = 0
+
+[sub_resource type="Resource" id="Resource_ndn2y"]
+resource_name = "-3 3 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_v4e0a")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-124.708, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_w7i86"]
+script = ExtResource("4_uwt01")
+q = -3
+r = 4
+s = -1
+
+[sub_resource type="Resource" id="Resource_u0nee"]
+resource_name = "-3 4 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_w7i86")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-7,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_abqwo"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 0
+s = 4
+
+[sub_resource type="Resource" id="Resource_paxa6"]
+resource_name = "-4 0 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_abqwo")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-332.554, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_xmdtm"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 1
+s = 3
+
+[sub_resource type="Resource" id="Resource_xnck4"]
+resource_name = "-4 1 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_xmdtm")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-290.985, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_hahmm"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 2
+s = 2
+
+[sub_resource type="Resource" id="Resource_5bqmi"]
+resource_name = "-4 2 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_hahmm")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-249.415, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_2dvqh"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 3
+s = 1
+
+[sub_resource type="Resource" id="Resource_ktwyn"]
+resource_name = "-4 3 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_2dvqh")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-207.846, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_6muy6"]
+script = ExtResource("4_uwt01")
+q = -4
+r = 4
+s = 0
+
+[sub_resource type="Resource" id="Resource_v5jha"]
+resource_name = "-4 4 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_6muy6")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-6,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_mbq2d"]
+script = ExtResource("4_uwt01")
+q = 0
+r = -1
+s = 1
+
+[sub_resource type="Resource" id="Resource_assbf"]
+resource_name = "0 -1 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_mbq2d")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-41.5692, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_70bcy"]
+script = ExtResource("4_uwt01")
+q = 0
+r = -2
+s = 2
+
+[sub_resource type="Resource" id="Resource_4vhmy"]
+resource_name = "0 -2 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_70bcy")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_msqri"]
+script = ExtResource("4_uwt01")
+q = 0
+r = -3
+s = 3
+
+[sub_resource type="Resource" id="Resource_xxppv"]
+resource_name = "0 -3 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_msqri")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-124.708, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_xag1g"]
+script = ExtResource("4_uwt01")
+q = 0
+r = -4
+s = 4
+
+[sub_resource type="Resource" id="Resource_kdquu"]
+resource_name = "0 -4 4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_xag1g")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-166.277, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_8xrgq"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 0
+s = 0
+
+[sub_resource type="Resource" id="Resource_nldko"]
+resource_name = "0 0 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_8xrgq")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_lbde0"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 1
+s = -1
+
+[sub_resource type="Resource" id="Resource_306so"]
+resource_name = "0 1 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_lbde0")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(41.5692, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_ci5c6"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 2
+s = -2
+
+[sub_resource type="Resource" id="Resource_2oikr"]
+resource_name = "0 2 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_ci5c6")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_4lff2"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 3
+s = -3
+
+[sub_resource type="Resource" id="Resource_n1u1j"]
+resource_name = "0 3 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_4lff2")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(124.708, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_bxxgv"]
+script = ExtResource("4_uwt01")
+q = 0
+r = 4
+s = -4
+
+[sub_resource type="Resource" id="Resource_avr01"]
+resource_name = "0 4 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_bxxgv")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-10,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, 288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_5x64i"]
+script = ExtResource("4_uwt01")
+q = 1
+r = -1
+s = 0
+
+[sub_resource type="Resource" id="Resource_kix4n"]
+resource_name = "1 -1 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_5x64i")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(41.5692, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_3d01x"]
+script = ExtResource("4_uwt01")
+q = 1
+r = -2
+s = 1
+
+[sub_resource type="Resource" id="Resource_j4j4q"]
+resource_name = "1 -2 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_3d01x")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_m88ov"]
+script = ExtResource("4_uwt01")
+q = 1
+r = -3
+s = 2
+
+[sub_resource type="Resource" id="Resource_2dde0"]
+resource_name = "1 -3 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_m88ov")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-41.5692, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_scb0r"]
+script = ExtResource("4_uwt01")
+q = 1
+r = -4
+s = 3
+
+[sub_resource type="Resource" id="Resource_n1tat"]
+resource_name = "1 -4 3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_scb0r")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-83.1384, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_b1edr"]
+script = ExtResource("4_uwt01")
+q = 1
+r = 0
+s = -1
+
+[sub_resource type="Resource" id="Resource_5fcyq"]
+resource_name = "1 0 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_b1edr")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_wuskb"]
+script = ExtResource("4_uwt01")
+q = 1
+r = 1
+s = -2
+
+[sub_resource type="Resource" id="Resource_kev1q"]
+resource_name = "1 1 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_wuskb")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(124.708, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_nuc2l"]
+script = ExtResource("4_uwt01")
+q = 1
+r = 2
+s = -3
+
+[sub_resource type="Resource" id="Resource_gyjhx"]
+resource_name = "1 2 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_nuc2l")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_ucp7j"]
+script = ExtResource("4_uwt01")
+q = 1
+r = 3
+s = -4
+
+[sub_resource type="Resource" id="Resource_74k3g"]
+resource_name = "1 3 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_ucp7j")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-11,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(207.846, 216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_e4vhb"]
+script = ExtResource("4_uwt01")
+q = 2
+r = -1
+s = -1
+
+[sub_resource type="Resource" id="Resource_838hk"]
+resource_name = "2 -1 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_e4vhb")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(124.708, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_s76xj"]
+script = ExtResource("4_uwt01")
+q = 2
+r = -2
+s = 0
+
+[sub_resource type="Resource" id="Resource_c1l61"]
+resource_name = "2 -2 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_s76xj")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_8h3xg"]
+script = ExtResource("4_uwt01")
+q = 2
+r = -3
+s = 1
+
+[sub_resource type="Resource" id="Resource_x8two"]
+resource_name = "2 -3 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_8h3xg")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(41.5692, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_u6wo4"]
+script = ExtResource("4_uwt01")
+q = 2
+r = -4
+s = 2
+
+[sub_resource type="Resource" id="Resource_bw1s7"]
+resource_name = "2 -4 2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_u6wo4")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_13018"]
+script = ExtResource("4_uwt01")
+q = 2
+r = 0
+s = -2
+
+[sub_resource type="Resource" id="Resource_pr5ef"]
+resource_name = "2 0 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_13018")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_jol5m"]
+script = ExtResource("4_uwt01")
+q = 2
+r = 1
+s = -3
+
+[sub_resource type="Resource" id="Resource_vwukp"]
+resource_name = "2 1 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_jol5m")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(207.846, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_ealcr"]
+script = ExtResource("4_uwt01")
+q = 2
+r = 2
+s = -4
+
+[sub_resource type="Resource" id="Resource_tsndj"]
+resource_name = "2 2 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_ealcr")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-12,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(249.415, 144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_nnekt"]
+script = ExtResource("4_uwt01")
+q = 3
+r = -1
+s = -2
+
+[sub_resource type="Resource" id="Resource_28fs2"]
+resource_name = "3 -1 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_nnekt")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(207.846, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_l0gcn"]
+script = ExtResource("4_uwt01")
+q = 3
+r = -2
+s = -1
+
+[sub_resource type="Resource" id="Resource_buyrr"]
+resource_name = "3 -2 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_l0gcn")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_h4s7m"]
+script = ExtResource("4_uwt01")
+q = 3
+r = -3
+s = 0
+
+[sub_resource type="Resource" id="Resource_4ulwp"]
+resource_name = "3 -3 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_h4s7m")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(124.708, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_qykdv"]
+script = ExtResource("4_uwt01")
+q = 3
+r = -4
+s = 1
+
+[sub_resource type="Resource" id="Resource_ly37y"]
+resource_name = "3 -4 1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_qykdv")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(83.1384, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_w3a8d"]
+script = ExtResource("4_uwt01")
+q = 3
+r = 0
+s = -3
+
+[sub_resource type="Resource" id="Resource_rkqmb"]
+resource_name = "3 0 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_w3a8d")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(249.415, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_svgsw"]
+script = ExtResource("4_uwt01")
+q = 3
+r = 1
+s = -4
+
+[sub_resource type="Resource" id="Resource_q3su3"]
+resource_name = "3 1 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_svgsw")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-13,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(290.985, 72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_gmrnm"]
+script = ExtResource("4_uwt01")
+q = 4
+r = -1
+s = -3
+
+[sub_resource type="Resource" id="Resource_ohlod"]
+resource_name = "4 -1 -3 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_gmrnm")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(290.985, -72),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_v646n"]
+script = ExtResource("4_uwt01")
+q = 4
+r = -2
+s = -2
+
+[sub_resource type="Resource" id="Resource_sc8kc"]
+resource_name = "4 -2 -2 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_v646n")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(249.415, -144),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_u6sjm"]
+script = ExtResource("4_uwt01")
+q = 4
+r = -3
+s = -1
+
+[sub_resource type="Resource" id="Resource_23eyy"]
+resource_name = "4 -3 -1 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_u6sjm")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(207.846, -216),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_n0r2l"]
+script = ExtResource("4_uwt01")
+q = 4
+r = -4
+s = 0
+
+[sub_resource type="Resource" id="Resource_wkhd4"]
+resource_name = "4 -4 0 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_n0r2l")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(166.277, -288),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_7u046"]
+script = ExtResource("4_uwt01")
+q = 4
+r = 0
+s = -4
+
+[sub_resource type="Resource" id="Resource_a23vv"]
+resource_name = "4 0 -4 "
+script = ExtResource("5_j0c67")
+hex_coordinate = SubResource("Resource_7u046")
+board_tile = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-14,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(332.554, 0),"rotation":0.0,"scale":Vector2(1.5, 1.5),"skew":0.0,"texture":Resource("res://Sprites/Coloured_Tiles.png"),"centered":true,"offset":Vector2(0, 8),"flip_h":false,"flip_v":false,"hframes":3,"vframes":1,"frame":1,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":Resource("res://Scripts/Gameplay/Board/Board_Tile.gd"))
+
+
+[sub_resource type="Resource" id="Resource_cyo0r"]
+script = ExtResource("10_ktlp4")
+unit_name = "Kaloes"
+unit_type = 0
+health = 10
+attack = 5
+
+[node name="SimpleGameManager" type="Node2D"]
+position = Vector2(969, 454)
+script = ExtResource("1_id0ua")
+current_phase = 1
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -285.0
+offset_top = -151.0
+offset_right = -245.0
+offset_bottom = -111.0
+
+[node name="END TURN" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 452.0
+offset_right = 889.0
+offset_bottom = 574.0
+text = "END TURN"
+
+[node name="Turn Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -16.927
+anchor_top = -7.439
+anchor_right = 22.985
+anchor_bottom = 14.789
+offset_left = 1329.08
+offset_top = 626.56
+offset_right = -73.4
+offset_bottom = -210.56
+text = "Player Turn
+"
+label_settings = SubResource("LabelSettings_qjjv6")
+script = ExtResource("2_idqqp")
+
+[node name="Board" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(-193, -71)
+script = ExtResource("2_620e6")
+map = {
+"-1 -1 2 ": SubResource("Resource_kfhtt"),
+"-1 -2 3 ": SubResource("Resource_ie8j0"),
+"-1 -3 4 ": SubResource("Resource_7m3rl"),
+"-1 0 1 ": SubResource("Resource_gdlpl"),
+"-1 1 0 ": SubResource("Resource_1ihf7"),
+"-1 2 -1 ": SubResource("Resource_7rpe4"),
+"-1 3 -2 ": SubResource("Resource_hpcjq"),
+"-1 4 -3 ": SubResource("Resource_bvymq"),
+"-2 -1 3 ": SubResource("Resource_axcda"),
+"-2 -2 4 ": SubResource("Resource_6sw5w"),
+"-2 0 2 ": SubResource("Resource_wwujo"),
+"-2 1 1 ": SubResource("Resource_8a0q8"),
+"-2 2 0 ": SubResource("Resource_0tki2"),
+"-2 3 -1 ": SubResource("Resource_c12ie"),
+"-2 4 -2 ": SubResource("Resource_v13tl"),
+"-3 -1 4 ": SubResource("Resource_qpdy5"),
+"-3 0 3 ": SubResource("Resource_my1tm"),
+"-3 1 2 ": SubResource("Resource_sxx0o"),
+"-3 2 1 ": SubResource("Resource_gqjk0"),
+"-3 3 0 ": SubResource("Resource_ndn2y"),
+"-3 4 -1 ": SubResource("Resource_u0nee"),
+"-4 0 4 ": SubResource("Resource_paxa6"),
+"-4 1 3 ": SubResource("Resource_xnck4"),
+"-4 2 2 ": SubResource("Resource_5bqmi"),
+"-4 3 1 ": SubResource("Resource_ktwyn"),
+"-4 4 0 ": SubResource("Resource_v5jha"),
+"0 -1 1 ": SubResource("Resource_assbf"),
+"0 -2 2 ": SubResource("Resource_4vhmy"),
+"0 -3 3 ": SubResource("Resource_xxppv"),
+"0 -4 4 ": SubResource("Resource_kdquu"),
+"0 0 0 ": SubResource("Resource_nldko"),
+"0 1 -1 ": SubResource("Resource_306so"),
+"0 2 -2 ": SubResource("Resource_2oikr"),
+"0 3 -3 ": SubResource("Resource_n1u1j"),
+"0 4 -4 ": SubResource("Resource_avr01"),
+"1 -1 0 ": SubResource("Resource_kix4n"),
+"1 -2 1 ": SubResource("Resource_j4j4q"),
+"1 -3 2 ": SubResource("Resource_2dde0"),
+"1 -4 3 ": SubResource("Resource_n1tat"),
+"1 0 -1 ": SubResource("Resource_5fcyq"),
+"1 1 -2 ": SubResource("Resource_kev1q"),
+"1 2 -3 ": SubResource("Resource_gyjhx"),
+"1 3 -4 ": SubResource("Resource_74k3g"),
+"2 -1 -1 ": SubResource("Resource_838hk"),
+"2 -2 0 ": SubResource("Resource_c1l61"),
+"2 -3 1 ": SubResource("Resource_x8two"),
+"2 -4 2 ": SubResource("Resource_bw1s7"),
+"2 0 -2 ": SubResource("Resource_pr5ef"),
+"2 1 -3 ": SubResource("Resource_vwukp"),
+"2 2 -4 ": SubResource("Resource_tsndj"),
+"3 -1 -2 ": SubResource("Resource_28fs2"),
+"3 -2 -1 ": SubResource("Resource_buyrr"),
+"3 -3 0 ": SubResource("Resource_4ulwp"),
+"3 -4 1 ": SubResource("Resource_ly37y"),
+"3 0 -3 ": SubResource("Resource_rkqmb"),
+"3 1 -4 ": SubResource("Resource_q3su3"),
+"4 -1 -3 ": SubResource("Resource_ohlod"),
+"4 -2 -2 ": SubResource("Resource_sc8kc"),
+"4 -3 -1 ": SubResource("Resource_23eyy"),
+"4 -4 0 ": SubResource("Resource_wkhd4"),
+"4 0 -4 ": SubResource("Resource_a23vv")
+}
+
+[node name="Layout" type="Node2D" parent="Board"]
+script = ExtResource("3_bulrf")
+size = Vector2(48, 48)
+
+[node name="Tiles" type="Node2D" parent="Board"]
+metadata/_edit_lock_ = true
+
+[node name="Tile -4 0 4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+position = Vector2(-332.554, 0)
+metadata/_edit_lock_ = true
+
+[node name="Tile -4 1 3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+position = Vector2(-290.985, 72)
+metadata/_edit_lock_ = true
+
+[node name="Tile -4 2 2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+position = Vector2(-249.415, 144)
+metadata/_edit_lock_ = true
+
+[node name="Tile -4 3 1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+position = Vector2(-207.846, 216)
+metadata/_edit_lock_ = true
+
+[node name="Tile -4 4 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -6
+position = Vector2(-166.277, 288)
+metadata/_edit_lock_ = true
+
+[node name="Tile -3 -1 4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+position = Vector2(-290.985, -72)
+metadata/_edit_lock_ = true
+
+[node name="Tile -3 0 3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+position = Vector2(-249.415, 0)
+metadata/_edit_lock_ = true
+
+[node name="Tile -3 1 2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+position = Vector2(-207.846, 72)
+metadata/_edit_lock_ = true
+
+[node name="Tile -3 2 1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+position = Vector2(-166.277, 144)
+metadata/_edit_lock_ = true
+
+[node name="Tile -3 3 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+position = Vector2(-124.708, 216)
+metadata/_edit_lock_ = true
+
+[node name="Tile -3 4 -1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -7
+position = Vector2(-83.1384, 288)
+metadata/_edit_lock_ = true
+
+[node name="Tile -2 -2 4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+position = Vector2(-249.415, -144)
+metadata/_edit_lock_ = true
+
+[node name="Tile -2 -1 3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+position = Vector2(-207.846, -72)
+metadata/_edit_lock_ = true
+
+[node name="Tile -2 0 2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+position = Vector2(-166.277, 0)
+metadata/_edit_lock_ = true
+
+[node name="Tile -2 1 1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+position = Vector2(-124.708, 72)
+metadata/_edit_lock_ = true
+
+[node name="Tile -2 2 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+position = Vector2(-83.1384, 144)
+metadata/_edit_lock_ = true
+
+[node name="Tile -2 3 -1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+position = Vector2(-41.5692, 216)
+metadata/_edit_lock_ = true
+
+[node name="Tile -2 4 -2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -8
+position = Vector2(0, 288)
+metadata/_edit_lock_ = true
+
+[node name="Tile -1 -3 4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+position = Vector2(-207.846, -216)
+metadata/_edit_lock_ = true
+
+[node name="Tile -1 -2 3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+position = Vector2(-166.277, -144)
+metadata/_edit_lock_ = true
+
+[node name="Tile -1 -1 2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+position = Vector2(-124.708, -72)
+metadata/_edit_lock_ = true
+
+[node name="Tile -1 0 1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+position = Vector2(-83.1384, 0)
+metadata/_edit_lock_ = true
+
+[node name="Tile -1 1 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+position = Vector2(-41.5692, 72)
+metadata/_edit_lock_ = true
+
+[node name="Tile -1 2 -1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+position = Vector2(0, 144)
+metadata/_edit_lock_ = true
+
+[node name="Tile -1 3 -2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+position = Vector2(41.5692, 216)
+metadata/_edit_lock_ = true
+
+[node name="Tile -1 4 -3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -9
+position = Vector2(83.1384, 288)
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 -4 4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+position = Vector2(-166.277, -288)
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 -3 3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+position = Vector2(-124.708, -216)
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 -2 2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+position = Vector2(-83.1384, -144)
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 -1 1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+position = Vector2(-41.5692, -72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 0 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 1 -1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+position = Vector2(41.5692, 72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 2 -2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+position = Vector2(83.1384, 144)
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 3 -3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+position = Vector2(124.708, 216)
+metadata/_edit_lock_ = true
+
+[node name="Tile 0 4 -4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -10
+position = Vector2(166.277, 288)
+metadata/_edit_lock_ = true
+
+[node name="Tile 1 -4 3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+position = Vector2(-83.1384, -288)
+metadata/_edit_lock_ = true
+
+[node name="Tile 1 -3 2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+position = Vector2(-41.5692, -216)
+metadata/_edit_lock_ = true
+
+[node name="Tile 1 -2 1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+position = Vector2(0, -144)
+metadata/_edit_lock_ = true
+
+[node name="Tile 1 -1 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+position = Vector2(41.5692, -72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 1 0 -1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+position = Vector2(83.1384, 0)
+metadata/_edit_lock_ = true
+
+[node name="Tile 1 1 -2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+position = Vector2(124.708, 72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 1 2 -3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+position = Vector2(166.277, 144)
+metadata/_edit_lock_ = true
+
+[node name="Tile 1 3 -4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -11
+position = Vector2(207.846, 216)
+metadata/_edit_lock_ = true
+
+[node name="Tile 2 -4 2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+position = Vector2(0, -288)
+metadata/_edit_lock_ = true
+
+[node name="Tile 2 -3 1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+position = Vector2(41.5692, -216)
+metadata/_edit_lock_ = true
+
+[node name="Tile 2 -2 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+position = Vector2(83.1384, -144)
+metadata/_edit_lock_ = true
+
+[node name="Tile 2 -1 -1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+position = Vector2(124.708, -72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 2 0 -2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+position = Vector2(166.277, 0)
+metadata/_edit_lock_ = true
+
+[node name="Tile 2 1 -3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+position = Vector2(207.846, 72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 2 2 -4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -12
+position = Vector2(249.415, 144)
+metadata/_edit_lock_ = true
+
+[node name="Tile 3 -4 1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+position = Vector2(83.1384, -288)
+metadata/_edit_lock_ = true
+
+[node name="Tile 3 -3 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+position = Vector2(124.708, -216)
+metadata/_edit_lock_ = true
+
+[node name="Tile 3 -2 -1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+position = Vector2(166.277, -144)
+metadata/_edit_lock_ = true
+
+[node name="Tile 3 -1 -2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+position = Vector2(207.846, -72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 3 0 -3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+position = Vector2(249.415, 0)
+metadata/_edit_lock_ = true
+
+[node name="Tile 3 1 -4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -13
+position = Vector2(290.985, 72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 4 -4 0 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+position = Vector2(166.277, -288)
+metadata/_edit_lock_ = true
+
+[node name="Tile 4 -3 -1 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+position = Vector2(207.846, -216)
+metadata/_edit_lock_ = true
+
+[node name="Tile 4 -2 -2 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+position = Vector2(249.415, -144)
+metadata/_edit_lock_ = true
+
+[node name="Tile 4 -1 -3 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+position = Vector2(290.985, -72)
+metadata/_edit_lock_ = true
+
+[node name="Tile 4 0 -4 " parent="Board/Tiles" instance=ExtResource("5_f6n6d")]
+z_index = -14
+position = Vector2(332.554, 0)
+metadata/_edit_lock_ = true
+
+[node name="Game Piece Manager" type="Node2D" parent="Board"]
+script = ExtResource("13_0guku")
+
+[node name="Ilena" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
+position = Vector2(4, 143)
+
+[node name="Kaleos" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
+position = Vector2(-4, -143)
+unit = SubResource("Resource_cyo0r")
+
+[node name="Deployment Manager" type="Node2D" parent="Board"]
+script = ExtResource("11_vqwd0")
+
+[node name="Travel_Attack Manager" type="Node2D" parent="Board"]
+script = ExtResource("9_nqovj")
+
+[node name="AttackActionManager" type="Node2D" parent="Board"]
+position = Vector2(193, 71)
+script = ExtResource("14_4w8j4")
+
+[node name="Card Manager" type="Node2D" parent="Board"]
+
+[node name="Hand" type="Node2D" parent="Board/Card Manager"]
+position = Vector2(3, 429)
+
+[node name="Card" parent="Board/Card Manager/Hand" instance=ExtResource("6_x6mpe")]
+game_piece_scene = ExtResource("10_3fcu5")
+
+[node name="Selection Manager" type="Node2D" parent="Board"]
+script = ExtResource("6_5gv8b")
+debug = false
+
+[node name="Debug Manager" type="Node2D" parent="Board"]
+z_index = -3
+z_as_relative = false
+script = ExtResource("7_gek6n")
+show_debug_hex_coords = true
+
+[connection signal="turn_change" from="." to="UI/Turn Label" method="_on_game_manager_turn_change"]
+[connection signal="pressed" from="UI/END TURN" to="." method="_on_end_turn_pressed"]
