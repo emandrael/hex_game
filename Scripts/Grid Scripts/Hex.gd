@@ -86,7 +86,7 @@ func hex_neighbor_at(direction:int):
 
 func _to_string():
 #	return ('q:'+str(q) + ' ' + 'r:'+str(r) + ' ' + 's:'+str(s) + ' ');
-	return (str(q) + ' ' +str(r) + ' ' + str(s) + ' ');
+	return (str(q) + ' ' +str(r) + ' ' + str(s));
 
 static func from_key(key : String):
 	var vals = key.split(' ')

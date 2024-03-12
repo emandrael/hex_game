@@ -24,8 +24,15 @@ func generate_map():
 		# Draws the board.
 		var tile : Tile = _tile;
 		# HexHelper.draw_hex(self,layout,tile.hex_coordinate,Color.HOT_PINK,Color.WHITE,5)
-		var tile_node = board_tile.instantiate();
+		var tile_node = board_tile.instantiate() as Sprite2D;
 		tile.board_tile = tile_node
+	
+		tile.terrain_type = Tile.TerrainType.Plains;
+		
+		if tile.terrain_type == Tile.TerrainType.Water:
+			tile_node.frame = 2
+		else:
+			tile_node.frame = 0;
 		tile_node.position = HexHelper.hex_to_pixel(layout,tile.hex_coordinate)
 		# In order to get the ordering right for these tiles in the
 		# game, we're doing some ordering with the z index. Making

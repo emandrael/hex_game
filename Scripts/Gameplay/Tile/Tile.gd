@@ -2,9 +2,19 @@ extends Resource
 
 class_name Tile
 
+enum TerrainType {
+	Plains = 1,
+	Forest = 5,
+	Water = 10,
+	Obstacle = int(INF),
+}
+
+
+
 @export var hex_coordinate : Hex;
 @export var unit : GamePiece;
 @export var board_tile : Node2D;
+@export var terrain_type : TerrainType;
 @export var properties : TileProperties;
 
 static func create_and_set_param(_hex,_unit,_board_tile,_properties) -> Tile:

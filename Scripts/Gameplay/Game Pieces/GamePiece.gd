@@ -13,7 +13,7 @@ enum GamePieceState {
 }
 
 signal select_game_piece(unit,hex)
-signal unit_selected(unit,hex)
+signal unit_selected(unit)
 signal is_moving
 signal is_finished_moving(game_piece:GamePieceState);
 
@@ -27,8 +27,13 @@ signal heath_gained(amount:int,previous:int,new:int);
 var hex:Hex;
 var move_commands : Array[Hex] = [];
 
+
+
 @export var total_steps: int = 2;
+@export var current_steps : int = total_steps
+
 @export var total_attacks: int = 1;
+@export var attack_range : int = 1; 
 
 @export var ownership : Turn.State;
 @export var unit : Unit;
@@ -120,7 +125,7 @@ func _ready():
 
 func _on_turn_change(turn_state : Turn.State):
 	if ownership == turn_state:
-		total_steps = 2;
+		current_steps = total_steps;
 		total_attacks = 1;
 		piece_state = GamePieceState.IDLE;
 
@@ -136,7 +141,7 @@ signal do_damage
 func attack(defending_game_piece:GamePiece):
 	if piece_state == GamePieceState.IDLE && total_attacks >= 1:
 		total_attacks -= 1;
-		total_steps = 0;
+		current_steps = 0;
 		# Attacking Unit Attacks First
 		is_battle_started.emit();
 		self.piece_state = GamePieceState.ATTACKING;
@@ -170,7 +175,6 @@ func attack(defending_game_piece:GamePiece):
 
 
 
-
 func check_hex_dir_then_flip_sprite_from_direction(from:Hex,to:Hex):
 	var move_direction : int = HexHelper.get_hex_direction(from,to)
 	if move_direction == 1 || move_direction == 2 || move_direction == 6:
@@ -186,7 +190,7 @@ func move():
 		piece_state = GamePieceState.MOVING;
 		is_moving.emit()
 		var move_steps = move_commands.size()
-		total_steps -= move_steps;
+		current_steps -= move_steps;
 		for move in range(move_steps):
 			var prev_hex = hex;
 			var hex_to_move_to = move_commands.pop_front();
@@ -195,7 +199,7 @@ func move():
 			var tween = create_tween()
 			tween.tween_property(self,'position',HexHelper.hex_to_pixel(board.layout,hex_to_move_to),0.2);
 			await tween.finished
-		if total_steps == 0:
+		if current_steps == 0:
 			piece_state = GamePieceState.TIRED;
 		else:
 			piece_state = GamePieceState.IDLE;
@@ -211,6 +215,6 @@ func _on_area_2d_input_event(viewport, event:InputEvent, shape_idx):
 	# THINK ABOUT HOW TO DECOUPLE THIS FROM THE GAME MANAGER, THIS IS ONLY FOR THE SIMPLE GAME MANAGER
 	if (event is InputEventMouseButton) && event.pressed && piece_state == GamePieceState.IDLE && game_manager.current_turn == ownership:
 		select_game_piece.emit(self,hex)
-		unit_selected.emit(self,hex)
+		unit_selected.emit(self)
 
 

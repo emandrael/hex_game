@@ -4,18 +4,22 @@ class_name SelectionZoneManager
 
 @export var highlighted_hex : Hex;
 @export var debug : bool = true;
+@export var route_highlighted : Array[Hex] = []
 
 @onready var board : Board = get_parent();
 @onready var layout: Layout = board.layout;
 @onready var map = board.map;
+
+@onready var action_manager : ActionManager = get_parent().get_node('ActionManager')
+
+
 
 
 func _ready():
 	set_selection_zones()
 func _draw():
 	if highlighted_hex:
-		HexHelper.draw_hex(self,layout,highlighted_hex,Color.TRANSPARENT,Color.SKY_BLUE)
-
+		HexHelper.draw_hex(self,layout,highlighted_hex,Color.TRANSPARENT,Color.ORANGE_RED)
 func _on_highlight_hex(hex):
 	highlighted_hex = hex;
 	self.queue_redraw()
