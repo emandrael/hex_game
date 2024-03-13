@@ -1,6 +1,5 @@
 extends Node2D
 
-
 class_name GamePiece
 
 enum GamePieceState {

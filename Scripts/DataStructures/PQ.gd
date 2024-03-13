@@ -13,7 +13,7 @@ const LOG2BASEE = 0.69314718056
 
 
 
-class PriorityQueues:
+class PriorityQueue:
 	
 	# Reference class. Does not need to be freed manually
 	

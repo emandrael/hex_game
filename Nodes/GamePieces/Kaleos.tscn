@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dph0dgk2n21js"]
+[gd_scene load_steps=19 format=3 uid="uid://dph0dgk2n21js"]
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePiece.gd" id="1_ruqwj"]
 [ext_resource type="Resource" uid="uid://ds4bxtlfy82ft" path="res://Resources/Captains/Barry.tres" id="2_r4wnl"]
@@ -186,12 +186,16 @@ tracks/2/keys = {
 "values": [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 }
 
+[sub_resource type="Animation" id="Animation_fwcqh"]
+resource_name = "move"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wkpjm"]
 _data = {
 "RESET": SubResource("Animation_j0rne"),
 "attack": SubResource("Animation_6myga"),
 "death": SubResource("Animation_xf7cs"),
-"idle": SubResource("Animation_nukcn")
+"idle": SubResource("Animation_nukcn"),
+"move": SubResource("Animation_fwcqh")
 }
 
 [sub_resource type="Animation" id="Animation_ioyp1"]
@@ -226,8 +230,14 @@ y_sort_enabled = true
 position = Vector2(-50, -10)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ruqwj")
+total_steps = null
+total_attacks = null
+attack_range = null
 ownership = 1
 unit = ExtResource("2_r4wnl")
+curr_health = null
+curr_attack = null
+piece_state = null
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -235,10 +245,10 @@ unit = ExtResource("2_r4wnl")
 shape = SubResource("CapsuleShape2D_1hcx5")
 
 [node name="SpriteAnimator" type="AnimationPlayer" parent="."]
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_wkpjm")
 }
+speed_scale = 2.0
 
 [node name="BuffDebuffAnimator" type="AnimationPlayer" parent="."]
 libraries = {

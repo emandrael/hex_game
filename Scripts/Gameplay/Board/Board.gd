@@ -5,6 +5,7 @@ class_name Board
 
 var board_tile = preload("res://Nodes/Board_Tile.tscn")
 
+
 @export var map : Dictionary;
 
 @onready var layout : Layout;

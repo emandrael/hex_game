@@ -12,8 +12,8 @@ enum TerrainType {
 
 
 @export var hex_coordinate : Hex;
-@export var unit : GamePiece;
-@export var board_tile : Node2D;
+var unit : GamePiece;
+var board_tile : Node2D;
 @export var terrain_type : TerrainType;
 @export var properties : TileProperties;
 

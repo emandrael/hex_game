@@ -245,10 +245,10 @@ shape = SubResource("CapsuleShape2D_1hcx5")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="SpriteAnimator" type="AnimationPlayer" parent="."]
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_mv7dt")
 }
+speed_scale = 2.0
 
 [node name="BuffDebuffAnimator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -258,8 +258,8 @@ libraries = {
 [node name="Unit_Sprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -20)
-texture = ExtResource("4_c0b4t")
-hframes = 26
+texture = ExtResource("5_exqcl")
+hframes = 21
 
 [node name="Health" type="Sprite2D" parent="."]
 position = Vector2(-12, 12)

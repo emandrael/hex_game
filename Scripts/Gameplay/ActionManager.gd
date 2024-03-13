@@ -6,7 +6,6 @@ signal delete_travel_attack_nodes
 signal disable_units_but(Unit)
 signal re_enable_units
 
-@onready var tester : Sprite2D = $"../Tester"
 @onready var board : Board = get_parent()
 @onready var map =  board.map;
 @onready var layout =  board.layout;
@@ -58,15 +57,15 @@ func get_all_potential_move_spaces(start_hex: Hex, game_piece_move_steps : int):
 	if start_hex.key not in board.map:
 		return
 	
-	var frontier : PriorityQueue = PriorityQueue.new()
+	var frontier : DS.PriorityQueue = DS.PriorityQueue.new([],[])
 	
-	frontier.push(0,start_hex)
+	frontier.insert(0,start_hex)
 	
 	var distances : Dictionary = {}
 	distances[start_hex.key] = 0
 	
-	while not frontier.is_empty():
-		var current: Hex = frontier.pop()
+	while not frontier.isEmpty:
+		var current: Hex = frontier.remove_root()
 		
 		if current.key not in board.map:
 			continue
@@ -87,7 +86,7 @@ func get_all_potential_move_spaces(start_hex: Hex, game_piece_move_steps : int):
 				if neighbour.key not in distances or new_movement_cost < distances[neighbour.key]:
 					
 					distances[neighbour.key] = new_movement_cost
-					frontier.push(movement_cost,neighbour)
+					frontier.insert(movement_cost,neighbour)
 
 	return distances
 	
@@ -99,8 +98,8 @@ func get_hex_path(starting_hex : Hex, goal_hex : Hex):
 	
 #	The frontier is what we use to find all of our routes. By the end of the while loop, it should be empty.
 #	We're using an implementation of PriorityQueue.
-	var frontier = PriorityQueue.new();
-	frontier.push(0,starting_hex)
+	var frontier : DS.PriorityQueue = DS.PriorityQueue.new([],[])
+	frontier.insert(0,starting_hex)
 
 #	We will be using the came_from dictionary, to eventually get the path of our route.
 	var came_from : Dictionary = {}
@@ -110,8 +109,8 @@ func get_hex_path(starting_hex : Hex, goal_hex : Hex):
 	var cost_so_far : Dictionary = {}
 	cost_so_far[starting_hex.key] = (board.map[starting_hex.key] as Tile).terrain_type
 
-	while not frontier.is_empty():
-		var current : Hex = frontier.pop() 
+	while not frontier.isEmpty:
+		var current : Hex = frontier.remove_root()
 		
 #		If the current isn't in the board then continue.
 		if current.key not in board.map:
@@ -134,7 +133,7 @@ func get_hex_path(starting_hex : Hex, goal_hex : Hex):
 				if neighbour.key not in cost_so_far or new_cost < cost_so_far[neighbour.key]:
 					cost_so_far[neighbour.key] = new_cost
 					var priority = new_cost + goal_hex.hex_distance_from(neighbour)
-					frontier.push(priority,neighbour)
+					frontier.insert(priority,neighbour)
 					came_from[neighbour.key] = current
 	
 	var current = goal_hex;
@@ -147,8 +146,6 @@ func get_hex_path(starting_hex : Hex, goal_hex : Hex):
 		path.append(current)
 		current = came_from[current.key]
 	path.reverse() # optional
-	
-	print(goal_hex,':   ',path)
 	
 	return path
 
@@ -171,7 +168,7 @@ func _draw():
 				if board.is_tile_free_at_hex(position) and selected_game_piece.current_steps > 0:
 					if position.key in selected_unit_potential_routes:
 						var distance_to_position = selected_unit_potential_routes[position.key];
-						print(position.key,':  ',distance_to_position)
+
 						if distance_to_position <= selected_game_piece.current_steps:
 							HexHelper.draw_hex(self,layout,position,Color.TRANSPARENT,zone_colour)
 		
@@ -216,12 +213,12 @@ func _on_unit_selected(piece:GamePiece):
 	
 	var positions_can_reach = get_selectable_tiles_in_range(piece.hex,max(piece.current_steps,piece.attack_range));
 	
-	print(selected_unit_potential_routes)
-	
 	for position in positions_can_reach:
 		if position.key in board.map:
 			var tile_at_pos : Tile = (map[position.key] as Tile)
 			var point = HexHelper.hex_to_pixel(layout,position);
+			
+			print(selected_game_piece.ownership)
 			
 			if board.is_tile_free_at_hex(position) and selected_game_piece.current_steps > 0:
 				if position.key in selected_unit_potential_routes:
@@ -233,7 +230,7 @@ func _on_unit_selected(piece:GamePiece):
 						delete_travel_attack_nodes.connect(new_travel_zone.queue_free)
 						all_travel_zones[new_travel_zone.hex.to_string()] = new_travel_zone;
 						
-			elif tile_at_pos.unit and tile_at_pos.unit.ownership != selected_game_piece.ownership and selected_game_piece.total_attacks >= 1:
+			elif board.is_tile_not_free_at_hex(position) and tile_at_pos.unit and tile_at_pos.unit.ownership != selected_game_piece.ownership and selected_game_piece.total_attacks >= 1:
 				var new_attack_zone : AttackZone = (attack_zone.instantiate() as AttackZone)
 				new_attack_zone.init(point,position)
 				new_attack_zone.defending_game_piece = (map[position.key] as Tile).unit
@@ -266,9 +263,6 @@ func _on_attack_unit(defending_game_piece:GamePiece):
 
 	
 func _on_travel_to(hex,travel_cost):
-	
-	print('trav')
-	
 	
 	if board.is_tile_not_free_at_hex(hex):
 		self.queue_redraw()
