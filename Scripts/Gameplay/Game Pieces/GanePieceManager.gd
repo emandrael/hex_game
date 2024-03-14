@@ -12,7 +12,6 @@ func _enter_tree():
 	board = get_parent();
 	map = board.map;
 	layout = board.layout;
-	print(layout)
 
 func set_game_piece_location(game_piece : GamePiece):
 	var point = game_piece.position;
@@ -37,7 +36,6 @@ func set_all_game_piece_locations(game_pieces : Array[Node]):
 
 func _ready():
 	var children = get_children()
-	print((children) is Array[GamePiece])
 	set_all_game_piece_locations(children)
 	
 #	for _tile in map.values():

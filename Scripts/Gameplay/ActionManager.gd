@@ -218,8 +218,6 @@ func _on_unit_selected(piece:GamePiece):
 			var tile_at_pos : Tile = (map[position.key] as Tile)
 			var point = HexHelper.hex_to_pixel(layout,position);
 			
-			print(selected_game_piece.ownership)
-			
 			if board.is_tile_free_at_hex(position) and selected_game_piece.current_steps > 0:
 				if position.key in selected_unit_potential_routes:
 					var distance_to_position = selected_unit_potential_routes[position.key];
