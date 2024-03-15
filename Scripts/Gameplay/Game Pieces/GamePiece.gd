@@ -11,8 +11,7 @@ enum GamePieceState {
 	FREED,
 }
 
-signal select_game_piece(unit,hex)
-signal unit_selected(unit)
+signal unit_selected(unit : GamePiece,hex : Hex)
 signal is_moving
 signal is_finished_moving(game_piece:GamePieceState);
 
@@ -109,7 +108,6 @@ func _process(delta):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_player.play('idle')
-	select_game_piece.connect(travel_zone_manager._on_sprite_2d_select_unit)
 	unit_selected.connect(travel_zone_manager._on_unit_selected)
 	travel_zone_manager.disable_units_but.connect(_on_disable_units_but)
 	travel_zone_manager.re_enable_units.connect(_on_re_enable_units)
@@ -213,7 +211,6 @@ func set_route(move_steps : Array[Hex]):
 func _on_area_2d_input_event(viewport, event:InputEvent, shape_idx):
 	# THINK ABOUT HOW TO DECOUPLE THIS FROM THE GAME MANAGER, THIS IS ONLY FOR THE SIMPLE GAME MANAGER
 	if (event is InputEventMouseButton) && event.pressed && piece_state == GamePieceState.IDLE && game_manager.current_turn == ownership:
-		select_game_piece.emit(self,hex)
-		unit_selected.emit(self)
+		unit_selected.emit(self,hex)
 
 
