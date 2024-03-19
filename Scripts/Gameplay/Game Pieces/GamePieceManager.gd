@@ -17,7 +17,6 @@ func _enter_tree():
 	map = board.map;
 	layout = board.layout;
 	
-	print(layout)
 
 
 func _on_death_animation_finished(game_piece:GamePiece):

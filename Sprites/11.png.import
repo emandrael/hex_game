@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh3ps2ysxmynb"
-path="res://.godot/imported/wildfire-ankh.png-fa4e3bb7b8143d646929b211d5e80783.ctex"
+uid="uid://dpsl8dim6kh2d"
+path="res://.godot/imported/11.png-3f2eff54fda26fd288a30d16bbaf365b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Artifacts/Sprites/wildfire-ankh.png"
-dest_files=["res://.godot/imported/wildfire-ankh.png-fa4e3bb7b8143d646929b211d5e80783.ctex"]
+source_file="res://Sprites/11.png"
+dest_files=["res://.godot/imported/11.png-3f2eff54fda26fd288a30d16bbaf365b.ctex"]
 
 [params]
 

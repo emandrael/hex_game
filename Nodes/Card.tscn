@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://d87eoq8kyhl1"]
+[gd_scene load_steps=8 format=3 uid="uid://d87eoq8kyhl1"]
 
 [ext_resource type="Script" path="res://Nodes/Card.gd" id="1_eq26c"]
-[ext_resource type="Texture2D" uid="uid://cpexqpnmalv3m" path="res://Sprites/Cards/11.png" id="2_oej1t"]
 [ext_resource type="FontFile" uid="uid://min08d0ahx52" path="res://Tomorrow_Night.ttf" id="3_5dr0u"]
 [ext_resource type="FontFile" uid="uid://bdh1otp7takw0" path="res://Nodes/Tomorrow_Night.ttf" id="4_okj1s"]
 [ext_resource type="SpriteFrames" uid="uid://qwdovhc2a3wd" path="res://Sprites/Generals/BLUE/ILENA/ILENA_sprite_frames.tres" id="4_xwhug"]
@@ -23,7 +22,6 @@ script = ExtResource("1_eq26c")
 
 [node name="Card" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_oej1t")
 
 [node name="MouseRegion" type="Button" parent="Card"]
 self_modulate = Color(1, 1, 1, 0)
