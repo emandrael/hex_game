@@ -13,7 +13,6 @@ static func create_hex_map(size:int) -> Dictionary:
 			var tile = Tile.create_and_set_param(hex,null,null,null);
 			tile.resource_name = str(hex);
 			map[str(hex)] = tile 	# Stores into a dictionary called
-			print(map[str(hex)])
 	return map;
 
 static func create_hex_array(size:int) -> Array[Array]:

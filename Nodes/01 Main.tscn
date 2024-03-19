@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=140 format=3 uid="uid://tnvxx2x8ktsa"]
+=======
+[gd_scene load_steps=143 format=3 uid="uid://tnvxx2x8ktsa"]
+>>>>>>> 76131daca95d9320256245cd6740deab5efac939
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/GameManager/SimpleManager/SimpleGameManager.gd" id="1_id0ua"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Board/Board.gd" id="2_620e6"]
@@ -14,7 +18,9 @@
 [ext_resource type="Script" path="res://Scripts/Gameplay/DeploymentZoneManager.gd" id="11_vqwd0"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePieceManager.gd" id="13_0guku"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/ActionManager.gd" id="13_kkbcs"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/MovementManager.gd" id="14_7vw0c"]
 [ext_resource type="PackedScene" uid="uid://dph0dgk2n21js" path="res://Nodes/GamePieces/Kaleos.tscn" id="15_2xiba"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/AttackManager.gd" id="15_ypjy2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjjv6"]
 font_size = 35
@@ -1119,24 +1125,37 @@ metadata/_edit_lock_ = true
 [node name="Ilena" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
 position = Vector2(4, 143)
 total_steps = 5
-total_attacks = null
-attack_range = null
-ownership = null
-curr_health = null
-curr_attack = null
-piece_state = null
+attack_range = 2
 
 [node name="Kaleos" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
 position = Vector2(129, 70)
+total_steps = 2
+total_attacks = 1
+attack_range = 1
 unit = SubResource("Resource_cyo0r")
+curr_health = 0
+curr_attack = 0
+piece_state = 0
 
 [node name="Kaleos3" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
 position = Vector2(-2, -2)
+total_steps = 2
+total_attacks = 1
+attack_range = 1
 unit = SubResource("Resource_cyo0r")
+curr_health = 0
+curr_attack = 0
+piece_state = 0
 
 [node name="Kaleos4" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
 position = Vector2(-81, -2)
+total_steps = 2
+total_attacks = 1
+attack_range = 1
 unit = SubResource("Resource_cyo0r")
+curr_health = 0
+curr_attack = 0
+piece_state = 0
 
 [node name="Deployment Manager" type="Node2D" parent="Board"]
 script = ExtResource("11_vqwd0")
@@ -1146,6 +1165,24 @@ metadata/_edit_lock_ = true
 script = ExtResource("13_kkbcs")
 metadata/_edit_lock_ = true
 
+<<<<<<< HEAD
+=======
+[node name="MovementManager" type="Node2D" parent="Board/ActionManager"]
+script = ExtResource("14_7vw0c")
+
+[node name="AttackManager" type="Node2D" parent="Board/ActionManager"]
+script = ExtResource("15_ypjy2")
+
+[node name="Card Manager" type="Node2D" parent="Board"]
+metadata/_edit_lock_ = true
+
+[node name="Hand" type="Node2D" parent="Board/Card Manager"]
+position = Vector2(3, 429)
+
+[node name="Card" parent="Board/Card Manager/Hand" instance=ExtResource("6_x6mpe")]
+game_piece_scene = ExtResource("10_3fcu5")
+
+>>>>>>> 76131daca95d9320256245cd6740deab5efac939
 [node name="Selection Manager" type="Node2D" parent="Board"]
 script = ExtResource("6_5gv8b")
 debug = false

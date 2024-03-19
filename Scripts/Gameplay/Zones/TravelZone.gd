@@ -7,7 +7,7 @@ class_name TravelZone
 
 signal travel_to(hex:Hex, travel_cost:int)
 
-@onready var travel_zone_manager:ActionManager = get_parent();
+@onready var travel_zone_manager:MovementManager = get_parent();
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	travel_to.connect(travel_zone_manager._on_travel_to)
