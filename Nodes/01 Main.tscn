@@ -1119,24 +1119,36 @@ metadata/_edit_lock_ = true
 [node name="Ilena" parent="Board/Game Piece Manager" instance=ExtResource("10_3fcu5")]
 position = Vector2(4, 143)
 total_steps = 5
-total_attacks = null
-attack_range = null
-ownership = null
-curr_health = null
-curr_attack = null
-piece_state = null
 
 [node name="Kaleos" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
 position = Vector2(129, 70)
+total_steps = 2
+total_attacks = 1
+attack_range = 1
 unit = SubResource("Resource_cyo0r")
+curr_health = 0
+curr_attack = 0
+piece_state = 0
 
 [node name="Kaleos3" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
 position = Vector2(-2, -2)
+total_steps = 2
+total_attacks = 1
+attack_range = 1
 unit = SubResource("Resource_cyo0r")
+curr_health = 0
+curr_attack = 0
+piece_state = 0
 
 [node name="Kaleos4" parent="Board/Game Piece Manager" instance=ExtResource("15_2xiba")]
 position = Vector2(-81, -2)
+total_steps = 2
+total_attacks = 1
+attack_range = 1
 unit = SubResource("Resource_cyo0r")
+curr_health = 0
+curr_attack = 0
+piece_state = 0
 
 [node name="Deployment Manager" type="Node2D" parent="Board"]
 script = ExtResource("11_vqwd0")

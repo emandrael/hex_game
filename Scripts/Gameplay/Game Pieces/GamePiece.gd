@@ -180,9 +180,6 @@ func check_hex_dir_then_flip_sprite_from_direction(from:Hex,to:Hex):
 		sprite.flip_h = false;
 	else:
 		sprite.flip_h = true;
-	print('from ',from)
-	print('to ',to)
-	print('direction is ',HexHelper.get_hex_direction(from,to))
 
 func move():
 	if piece_state == GamePieceState.IDLE:

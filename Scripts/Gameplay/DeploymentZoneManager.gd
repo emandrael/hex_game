@@ -43,11 +43,10 @@ func spawn_all_deployment_zones_for_owner(state : Turn.State):
 	var all_units : Array[GamePiece] = [] 
 	if state == Turn.State.ENEMY:
 		return;
-	print(player_units)
-	print(enemy_units)
+
 	all_units.append_array(player_units)
 	all_units.append_array(enemy_units)
-	print(all_units);
+
 	for unit in all_units:
 		if unit.ownership == state:
 			spawn_deployment_zones_at_unit_neigbours(deployment_zone,unit,map)
