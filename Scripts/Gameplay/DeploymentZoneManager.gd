@@ -30,7 +30,7 @@ func _on_game_piece_finished_moving(game_piece:GamePiece):
 func _on_game_piece_battle_finished(game_piece:GamePiece):
 	spawn_all_deployment_zones_for_owner(game_piece.ownership)
 
-func _on_deploy(game_piece_scene : PackedScene, deployment_zone : DeploymentZone):
+func _on_deploy(game_piece_scene : PackedScene):
 	var game_piece : GamePiece =  game_piece_scene.instantiate()
 	spawn_all_deployment_zones_for_owner(game_piece.ownership)
 
@@ -49,8 +49,9 @@ func spawn_all_deployment_zones_for_owner(state : Turn.State):
 
 	for unit in all_units:
 		if unit.ownership == state:
-			spawn_deployment_zones_at_unit_neigbours(deployment_zone,unit,map)
-func spawn_deployment_zones_at_unit_neigbours(node_scene:PackedScene,game_piece:GamePiece,map : Dictionary):
+			spawn_deployment_zones_at_unit_neigbours(deployment_zone,unit)
+
+func spawn_deployment_zones_at_unit_neigbours(node_scene:PackedScene,game_piece:GamePiece,):
 	var neighbours = game_piece.hex.get_hex_neighbours()
 	
 	for neighbour in (neighbours as Array[Hex]):

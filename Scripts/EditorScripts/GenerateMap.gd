@@ -6,10 +6,7 @@ var board_tile = preload("res://Nodes/Board_Tile.tscn")
 func generate_map():
 	var tiles = get_scene().get_node('Board/Tiles');
 	var layout : Layout = get_scene().get_node('Board/Layout');
-	
-	var hex = Hex.create_and_set_param(1,-1,0);
-	var tilfe = Tile.create_and_set_param(hex,null,null,null);
-	
+		
 	(get_scene().get_node('Board').map as Dictionary).clear()
 	get_scene().get_node('Board').map = BoardHelper.create_hex_map(4);
 

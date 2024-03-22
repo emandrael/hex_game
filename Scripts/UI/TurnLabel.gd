@@ -14,3 +14,5 @@ func _on_game_manager_turn_change(state : Turn.State):
 		Turn.State.NEUTRAL:
 			text = 'Neutral Turn'
 
+		
+
