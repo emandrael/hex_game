@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://tnvxx2x8ktsa"]
+[gd_scene load_steps=141 format=3 uid="uid://tnvxx2x8ktsa"]
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/GameManager/SimpleManager/SimpleGameManager.gd" id="1_id0ua"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Board/Board.gd" id="2_620e6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Gameplay/DeploymentZoneManager.gd" id="11_vqwd0"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePieceManager.gd" id="13_0guku"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/ActionManager.gd" id="13_kkbcs"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/MovementManager.gd" id="14_plq1v"]
 [ext_resource type="PackedScene" uid="uid://dph0dgk2n21js" path="res://Nodes/GamePieces/Kaleos.tscn" id="15_2xiba"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjjv6"]
@@ -1139,6 +1140,9 @@ metadata/_edit_lock_ = true
 [node name="ActionManager" type="Node2D" parent="Board"]
 script = ExtResource("13_kkbcs")
 metadata/_edit_lock_ = true
+
+[node name="MovementManager" type="Node2D" parent="Board/ActionManager"]
+script = ExtResource("14_plq1v")
 
 [node name="Selection Manager" type="Node2D" parent="Board"]
 script = ExtResource("6_5gv8b")
