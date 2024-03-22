@@ -230,14 +230,8 @@ y_sort_enabled = true
 position = Vector2(-50, -10)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ruqwj")
-total_steps = null
-total_attacks = null
-attack_range = null
 ownership = 1
 unit = ExtResource("2_r4wnl")
-curr_health = null
-curr_attack = null
-piece_state = null
 
 [node name="Area2D" type="Area2D" parent="."]
 
