@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePiece.gd" id="1_m7uml"]
 [ext_resource type="Resource" uid="uid://dmibqn8ygi3qs" path="res://Resources/Captains/Garry.tres" id="2_5rivm"]
-[ext_resource type="Texture2D" uid="uid://iyb8f23rsi0s" path="res://Sprites/Generals/BLUE/ILENA/ILENA_IDLE.png" id="3_4dipw"]
-[ext_resource type="Texture2D" uid="uid://c1yp6c3x7ek3q" path="res://Sprites/Generals/BLUE/ILENA/ILENA_MOVE.png" id="3_ngqos"]
-[ext_resource type="Texture2D" uid="uid://bjpfign3a5c4x" path="res://Sprites/health_attack.png" id="4_7x675"]
-[ext_resource type="Texture2D" uid="uid://70p7t2ohojfl" path="res://Sprites/Generals/BLUE/ILENA/ILENA_ATTACK.png" id="4_c0b4t"]
-[ext_resource type="Texture2D" uid="uid://efx0tu7nmcnc" path="res://Sprites/Generals/BLUE/ILENA/ILENA_DEATH.png" id="5_exqcl"]
+[ext_resource type="Texture2D" uid="uid://dfkymfwgkyb56" path="res://Sprites/Generals/BLUE/ILENA/ILENA_IDLE.png" id="3_4dipw"]
+[ext_resource type="Texture2D" uid="uid://cljc52w6m5w6e" path="res://Sprites/Generals/BLUE/ILENA/ILENA_MOVE.png" id="3_ngqos"]
+[ext_resource type="Texture2D" uid="uid://yj1rv4rgigrm" path="res://Sprites/health_attack.png" id="4_7x675"]
+[ext_resource type="Texture2D" uid="uid://7fhacribn4pn" path="res://Sprites/Generals/BLUE/ILENA/ILENA_ATTACK.png" id="4_c0b4t"]
+[ext_resource type="Texture2D" uid="uid://cji8r8op1btuc" path="res://Sprites/Generals/BLUE/ILENA/ILENA_DEATH.png" id="5_exqcl"]
 [ext_resource type="FontFile" uid="uid://bdh1otp7takw0" path="res://Nodes/Tomorrow_Night.ttf" id="5_y5jcy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hcx5"]
@@ -236,7 +236,14 @@ default_font = ExtResource("5_y5jcy")
 position = Vector2(-50, -10)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_m7uml")
+total_steps = null
+total_attacks = null
+attack_range = null
+ownership = null
 unit = ExtResource("2_5rivm")
+curr_health = null
+curr_attack = null
+piece_state = null
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -258,8 +265,8 @@ libraries = {
 [node name="Unit_Sprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -20)
-texture = ExtResource("5_exqcl")
-hframes = 21
+texture = ExtResource("4_c0b4t")
+hframes = 26
 
 [node name="Health" type="Sprite2D" parent="."]
 position = Vector2(-12, 12)

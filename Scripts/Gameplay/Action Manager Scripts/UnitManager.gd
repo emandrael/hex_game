@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name ActionManager
+class_name UnitManager
 
 signal delete_travel_attack_nodes
 signal disable_units_but(Unit)
@@ -22,40 +22,6 @@ signal re_enable_units
 @onready var movement_manager : MovementManager = get_node('MovementManager')
 
 
-func get_selectable_tiles_in_range(starting_hex: Hex, distance_from_tile : int):
-	if starting_hex.key not in board.map:
-		return
-	
-	var frontier : Array[Hex] = [];
-	frontier.append(starting_hex)
-	
-	var reached : Dictionary = {};
-	
-	var came_from : Dictionary = {}
-	came_from[starting_hex.key] = null
-
-	while not frontier.is_empty():
-		var current_hex : Hex = frontier.pop_at(0)
-		
-		if current_hex.key not in board.map:
-			continue
-		
-		var neighbours_of_current_hex : Array[Hex] = current_hex.get_hex_neighbours()
-		
-		for neighbour in neighbours_of_current_hex:
-			if neighbour.key not in reached:
-				if neighbour.hex_distance_from(starting_hex) > distance_from_tile: # We can use this for set radiuses.
-					continue
-				if neighbour.key in board.map:
-					frontier.append(neighbour)
-					reached[neighbour.key] = neighbour
-					
-	var selectable_tiles_in_range : Array[Hex] = [] 
-	for tile in reached.values():
-		selectable_tiles_in_range.append(tile as Hex)
-	
-	return selectable_tiles_in_range
-
 
 func draw_at_each_position(func_at_position : Callable, positions : Array[Hex]):
 	if(selected_hex and selected_game_piece):		
@@ -71,7 +37,7 @@ func draw_movement_zones():
 	else:
 		return
 	
-	var positions_can_reach = get_selectable_tiles_in_range(selected_game_piece.hex,game_piece_steps_left);
+	var positions_can_reach = board.get_selectable_tiles_in_range(selected_game_piece.hex,game_piece_steps_left);
 	draw_at_each_position(func (hex_position):
 		if board.is_tile_free_at_hex(hex_position) and selected_game_piece.current_steps > 0:
 			if hex_position.key in selected_unit_potential_routes:
@@ -86,7 +52,7 @@ func draw_movement_zones():
 func draw_attack_zones():
 	if !selected_game_piece:
 		return
-	var positions_in_attack_reach = get_selectable_tiles_in_range(selected_game_piece.hex, selected_game_piece.attack_range)
+	var positions_in_attack_reach = board.get_selectable_tiles_in_range(selected_game_piece.hex, selected_game_piece.attack_range)
 
 	draw_at_each_position(func(hex_position):
 		if board.is_tile_not_free_at_hex(hex_position):
@@ -106,7 +72,7 @@ func _draw():
 func _on_unit_selected(game_piece:GamePiece, hex : Hex):
 	var travel_zone = preload("res://Nodes/Travel_Zone.tscn")
 	var attack_zone = preload("res://Nodes/Attack_Zone.tscn")
-		
+
 	if(selected_hex):
 		if(selected_hex.equal_to(hex)):
 			delete_travel_attack_nodes.emit()
@@ -117,9 +83,13 @@ func _on_unit_selected(game_piece:GamePiece, hex : Hex):
 	selected_hex = hex;
 	selected_game_piece = game_piece;
 	selected_unit_potential_routes = {}
+
 	
-	var positions_can_reach = get_selectable_tiles_in_range(selected_game_piece.hex,selected_game_piece.current_steps);
 	
+	var positions_can_reach = board.get_selectable_tiles_in_range(selected_game_piece.hex,selected_game_piece.current_steps);
+	
+	var positions_in_attack_reach = board.get_selectable_tiles_in_range(selected_game_piece.hex, selected_game_piece.attack_range)
+
 	selected_unit_potential_routes = movement_manager.get_all_potential_move_spaces(game_piece.hex,game_piece.current_steps)
 	
 	disable_units_but.emit(game_piece)
@@ -132,9 +102,7 @@ func _on_unit_selected(game_piece:GamePiece, hex : Hex):
 	
 	for tile_position in positions_can_reach:
 		if tile_position.key in board.map:
-			var tile_at_pos : Tile = (map[tile_position.key] as Tile)
-			var point = HexHelper.hex_to_pixel(layout,tile_position);
-			
+			var point = HexHelper.hex_to_pixel(layout,tile_position);			
 			if board.is_tile_free_at_hex(tile_position) and selected_game_piece.current_steps > 0:
 				if tile_position.key in selected_unit_potential_routes:
 					var distance_to_position = selected_unit_potential_routes[tile_position.key];
@@ -144,13 +112,18 @@ func _on_unit_selected(game_piece:GamePiece, hex : Hex):
 						new_travel_zone.init(point,1,tile_position)
 						delete_travel_attack_nodes.connect(new_travel_zone.queue_free)
 						all_travel_zones[new_travel_zone.hex.to_string()] = new_travel_zone;
-						
-			elif board.is_tile_not_free_at_hex(tile_position) and tile_at_pos.unit and tile_at_pos.unit.ownership != selected_game_piece.ownership and selected_game_piece.total_attacks >= 1:
+	
+	for tile_position in positions_in_attack_reach:
+		if tile_position.key in board.map:
+			var tile_at_pos : Tile = (map[tile_position.key] as Tile)
+			var point = HexHelper.hex_to_pixel(layout,tile_position);			
+			if board.is_tile_not_free_at_hex(tile_position) and tile_at_pos.unit and tile_at_pos.unit.ownership != selected_game_piece.ownership and selected_game_piece.total_attacks >= 1:
 				var new_attack_zone : AttackZone = (attack_zone.instantiate() as AttackZone)
 				new_attack_zone.init(point,tile_position)
 				new_attack_zone.defending_game_piece = (map[tile_position.key] as Tile).unit
 				delete_travel_attack_nodes.connect(new_attack_zone.queue_free)
 				all_travel_zones[tile_position.key] = new_attack_zone;
+
 
 	for zone in (all_travel_zones.values()):
 		if zone is AttackZone:
@@ -174,7 +147,9 @@ func _on_attack_unit(defending_game_piece:GamePiece):
 	if selected_hex == null || selected_game_piece == null || defending_game_piece == null:
 		return;
 	able_to_attack = false;
-	selected_game_piece.attack(defending_game_piece);
+	
+	selected_game_piece.attack(defending_game_piece)
+
 	await defending_game_piece.anim_player.animation_finished;
 	able_to_attack = true;
 

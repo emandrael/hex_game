@@ -7,4 +7,7 @@ script = ExtResource("1_3h32x")
 unit_name = "Ilena"
 unit_type = 0
 health = 10
+mana = 15
 attack = 10
+critical_attack_modifier = 2
+movement_range = 2

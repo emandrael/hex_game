@@ -2,16 +2,16 @@ extends Node2D
 
 class_name MovementManager
 
-@onready var action_manager : ActionManager;
+@onready var unit_manager : UnitManager;
 
 var board : Board;
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	action_manager = get_parent()
-	action_manager.ready.connect(func ():
-		board = action_manager.board;
+	unit_manager = get_parent()
+	unit_manager.ready.connect(func ():
+		board = unit_manager.board;
 	)
 
 func get_all_potential_move_spaces(start_hex: Hex, game_piece_move_steps : int):
@@ -112,27 +112,27 @@ func get_hex_path(starting_hex : Hex, goal_hex : Hex):
 
 func _on_travel_to(hex,travel_cost):
 	if board.is_tile_not_free_at_hex(hex):
-		action_manager.queue_redraw()
+		unit_manager.queue_redraw()
 		return
 	
-	if action_manager.selected_hex == null || action_manager.selected_game_piece == null:
+	if unit_manager.selected_hex == null || unit_manager.selected_game_piece == null:
 		return;
 
 	
-	var route = get_hex_path(action_manager.selected_game_piece.hex,hex)
+	var route = get_hex_path(unit_manager.selected_game_piece.hex,hex)
 	
-	action_manager.delete_travel_attack_nodes.emit()
+	unit_manager.delete_travel_attack_nodes.emit()
 	# If there is a unit at the location of the selected travel, the the unit won't move there.
 	
 	# Unit that was on the previous hex becomes null.
-	(board.map[str(action_manager.selected_hex)] as Tile).unit = null;
+	(board.map[str(unit_manager.selected_hex)] as Tile).unit = null;
 	# Unit that was on the previous hex becomes null.
-	(board.map[str(hex)] as Tile).unit = action_manager.selected_game_piece;
-	action_manager.queue_redraw()
+	(board.map[str(hex)] as Tile).unit = unit_manager.selected_game_piece;
+	unit_manager.queue_redraw()
 	
-	action_manager.selected_game_piece.set_route(route);
-	action_manager.selected_game_piece.move()
-	action_manager.selected_hex = null
-	action_manager.selected_game_piece = null
+	unit_manager.selected_game_piece.set_route(route);
+	unit_manager.selected_game_piece.move()
+	unit_manager.selected_hex = null
+	unit_manager.selected_game_piece = null
 	
-	action_manager.re_enable_units.emit()
+	unit_manager.re_enable_units.emit()

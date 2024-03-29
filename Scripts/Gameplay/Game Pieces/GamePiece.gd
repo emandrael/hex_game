@@ -43,7 +43,7 @@ var move_commands : Array[Hex] = [];
 
 @onready var game_manager:GameManager = get_parent().get_parent().get_parent();
 @onready var board:Board = get_parent().get_parent();
-@onready var travel_zone_manager:ActionManager = board.get_node('ActionManager');
+@onready var travel_zone_manager:UnitManager = board.get_node('UnitManager');
 @onready var sprite = get_node("Unit_Sprite")
 
 @onready var health_bubble : Sprite2D = get_node('Health');
@@ -75,7 +75,7 @@ func gain_health(amount:int):
 	heath_gained.emit(amount,prev_health,new_health);
 
 
-func _process(delta):
+func _process(_delta):
 	match piece_state:
 		GamePieceState.IDLE:
 			anim_player.play('idle')
@@ -117,6 +117,8 @@ func _ready():
 	set_health_label(curr_health)
 	curr_attack = self.unit.attack;
 	set_attack_label(curr_attack)
+
+	total_steps = self.unit.movement_range;
 
 
 

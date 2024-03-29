@@ -13,6 +13,7 @@ class_name Hex
 		return s;
 		
 
+
 var key : String:
 	get: 
 		return str(self); 
@@ -76,7 +77,7 @@ func is_not_in(array_of_hexes : Array[Hex]):
 
 func get_hex_neighbours() -> Array[Hex]:
 	var neighbours : Array[Hex] = []
-	var directions = HexDirections.new().directions;
+	var directions = HexDirections.new().directions.values();
 	for dir in directions:
 		neighbours.append(self.hex_add(dir))
 	return neighbours;

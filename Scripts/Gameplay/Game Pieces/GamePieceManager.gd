@@ -39,6 +39,7 @@ func set_game_piece_location(game_piece : GamePiece):
 	var round_hex = HexHelper.hex_round(frac_hex);
 	var hex_world_pos = HexHelper.hex_to_pixel(board.layout, round_hex);
 	
+
 	game_piece.hex = round_hex;
 	game_piece.position = hex_world_pos;
 	if not game_piece.death_animation_finished.is_connected(_on_death_animation_finished):

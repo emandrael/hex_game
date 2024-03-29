@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Gameplay/Game Pieces/GamePiece.gd" id="1_ruqwj"]
 [ext_resource type="Resource" uid="uid://ds4bxtlfy82ft" path="res://Resources/Captains/Barry.tres" id="2_r4wnl"]
-[ext_resource type="Texture2D" uid="uid://dm4vemlr51bii" path="res://Sprites/Generals/RED/KALEOS/KALEOS.png" id="3_wlkma"]
-[ext_resource type="Texture2D" uid="uid://bjpfign3a5c4x" path="res://Sprites/health_attack.png" id="4_71wev"]
-[ext_resource type="Texture2D" uid="uid://0h5kvo3csq4l" path="res://Sprites/Generals/RED/KALEOS/KALEOS_ATTACK.png" id="4_hadud"]
+[ext_resource type="Texture2D" uid="uid://dqbt424xtklss" path="res://Sprites/Generals/RED/KALEOS/KALEOS.png" id="3_wlkma"]
+[ext_resource type="Texture2D" uid="uid://yj1rv4rgigrm" path="res://Sprites/health_attack.png" id="4_71wev"]
+[ext_resource type="Texture2D" uid="uid://dm666ffivso7h" path="res://Sprites/Generals/RED/KALEOS/KALEOS_ATTACK.png" id="4_hadud"]
 [ext_resource type="FontFile" uid="uid://bdh1otp7takw0" path="res://Nodes/Tomorrow_Night.ttf" id="5_48w60"]
-[ext_resource type="Texture2D" uid="uid://dibu5naxdtqst" path="res://Sprites/Generals/RED/KALEOS/KALEOS_DEATH.png" id="5_mqcir"]
+[ext_resource type="Texture2D" uid="uid://dpx7vr74ooe4b" path="res://Sprites/Generals/RED/KALEOS/KALEOS_DEATH.png" id="5_mqcir"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hcx5"]
 radius = 14.6666
@@ -230,8 +230,14 @@ y_sort_enabled = true
 position = Vector2(-50, -10)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ruqwj")
+total_steps = null
+total_attacks = null
+attack_range = null
 ownership = 1
 unit = ExtResource("2_r4wnl")
+curr_health = null
+curr_attack = null
+piece_state = null
 
 [node name="Area2D" type="Area2D" parent="."]
 

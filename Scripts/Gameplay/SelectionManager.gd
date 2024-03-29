@@ -10,10 +10,6 @@ class_name SelectionZoneManager
 @onready var layout: Layout = board.layout;
 @onready var map = board.map;
 
-@onready var action_manager : ActionManager = get_parent().get_node('ActionManager')
-
-
-
 
 func _ready():
 	set_selection_zones()
